@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #fcfcf2;
     color: #333;
     margin: 0;
     padding: 0;
@@ -18,7 +18,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #fcfcf2;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -50,6 +50,7 @@ header {
 h1 {
     margin: 10px 0;
     color: #2e7d32;
+    /* color: #284e2a; */
 }
 
 .achievements {
@@ -57,7 +58,8 @@ h1 {
 }
 
 .achievements h2 {
-    color: #6d4c41;
+    /*color: #6d4c41;*/
+    color: #6f4c3e;
 }
 
 footer {
