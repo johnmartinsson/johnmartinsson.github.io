@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
     background-color: #fcfcf2;
     color: #333;
     margin: 0;
@@ -8,6 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -53,20 +54,27 @@ h1 {
     /* color: #284e2a; */
 }
 
-.achievements {
+.research_vision {
     margin-bottom: 20px;
 }
 
-.achievements h2 {
+.research_vision h2 {
     /*color: #6d4c41;*/
     color: #6f4c3e;
 }
 
-footer {
+/* footer {
     text-align: center;
     margin-top: 20px;
     display: flex;
     justify-content: center;
+} */
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust the gap as needed */
+    margin-top: 10px; /* Adjust the margin as needed */
 }
 
 .social-link {
@@ -100,4 +108,18 @@ footer {
         width: 25px;
         height: 25px;
     }
+}
+
+
+.section-header {
+    position: relative;
+    text-align: center;
+    margin: 20px 0; /* Add margin to the section header for spacing */
+}
+
+.section-header img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0; /* Add margin to the image for spacing */
 }
