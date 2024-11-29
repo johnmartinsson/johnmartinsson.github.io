@@ -21,7 +21,6 @@ body {
     padding: 20px;
     background-color: #fcfcf2;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: justify;
 }
 
 header {
@@ -184,6 +183,11 @@ h1 {
     footer img {
         width: 25px;
         height: 25px;
+    }
+
+    .play-pause-icon {
+        width: 10px;
+        height: 10px;
     }
 }
 
