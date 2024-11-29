@@ -191,11 +191,13 @@ h1 {
     }
 
     .icon-group.left {
-        margin-top:-10px;
+        margin-right: 10px; /* Adjust the spacing between icons and profile picture */
+        margin-top:-5px;
     }
     
     .icon-group.right {
-        margin-top:-10px;
+        margin-left: 10px; /* Adjust the spacing between icons and profile picture */
+        margin-top:-5px;
     }
 }
 
