@@ -214,3 +214,31 @@ h1 {
     display: block;
     margin: 20px 0; /* Add margin to the image for spacing */
 }
+
+/* Publications list styling */
+.publications-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.publications-list li {
+    margin-bottom: 15px; /* Add space between list items */
+}
+
+.publications-list strong {
+    margin-bottom: 5px; /* Add space below author names */
+}
+
+.publications-list em {
+    font-style: italic; /* Italicize the conference name */
+}
+
+.publications-list a {
+    color: #2e7d32; /* Change link color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.publications-list a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
