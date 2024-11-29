@@ -39,6 +39,80 @@ header {
     height: auto;
 }
 
+.profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px; /* Adjust as needed */
+}
+
+.icon-group {
+    display: flex;
+    justify-content: space-between; /* Distribute icons evenly */
+    flex: 1; /* Allow the icon groups to take up equal space */
+    align-items: flex-end; /* Align icons at the bottom */
+}
+
+.icon-group.left {
+    margin-right: 20px; /* Adjust the spacing between icons and profile picture */
+    margin-top:-25px;
+}
+
+.icon-group.right {
+    margin-left: 20px; /* Adjust the spacing between icons and profile picture */
+    margin-top:-25px;
+}
+
+.icon img {
+    width: 65%; /* Adjust the size of the icons */
+    height: auto;
+    cursor: pointer;
+}
+
+.icon {
+    position: relative;
+    display: inline-block;
+}
+
+.play-pause-icon {
+    position: absolute;
+    bottom: 0px; /* Position at the bottom */
+    left: -5px; /* Position at the left */
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+}
+
+.play-pause-icon.play {
+    background-image: url('images/play.svg'); /* Path to your play icon */
+}
+
+.play-pause-icon.pause {
+    background-image: url('images/pause.svg'); /* Path to your pause icon */
+}
+
+.icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%; /* Position above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
 .profile-photo {
     width: 200px;
     height: 200px;
@@ -47,6 +121,7 @@ header {
     margin-top: -110px; /* Adjust this value to position the profile photo */
     border: 5px solid #2e7d32; /* Optional: Add a border to the profile photo */
 }
+
 
 h1 {
     margin: 10px 0;
