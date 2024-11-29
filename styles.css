@@ -189,6 +189,14 @@ h1 {
         width: 10px;
         height: 10px;
     }
+
+    .icon-group.left {
+        margin-top:-10px;
+    }
+    
+    .icon-group.right {
+        margin-top:-10px;
+    }
 }
 
 
