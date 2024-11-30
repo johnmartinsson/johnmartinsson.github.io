@@ -22,4 +22,10 @@ function togglePlayPause(id, element) {
         icon.classList.remove('pause');
         icon.classList.add('play');
     }
+
+    // Add event listener for the 'ended' event
+    audio.addEventListener('ended', function() {
+        icon.classList.remove('pause');
+        icon.classList.add('play');
+    });
 }
