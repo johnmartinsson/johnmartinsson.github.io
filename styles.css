@@ -216,29 +216,27 @@ h1 {
 }
 
 /* Publications list styling */
-.publications-list {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+.presentations-list ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.publications-list li {
-    margin-bottom: 15px; /* Add space between list items */
+.presentations-list li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-.publications-list strong {
-    margin-bottom: 5px; /* Add space below author names */
+.presentations-list h3 {
+    margin: 0;
 }
 
-.publications-list em {
-    font-style: italic; /* Italicize the conference name */
+.presentations-list a {
+    color: #2e7d32;
+    text-decoration: none;
 }
 
-.publications-list a {
-    color: #2e7d32; /* Change link color */
-    text-decoration: none; /* Remove underline from links */
-}
-
-.publications-list a:hover {
-    text-decoration: underline; /* Add underline on hover */
+.presentations-list a:hover {
+    text-decoration: underline;
 }
