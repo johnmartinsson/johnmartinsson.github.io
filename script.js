@@ -29,3 +29,21 @@ function togglePlayPause(id, element) {
         icon.classList.add('play');
     });
 }
+
+// Function to load slides from an external HTML file
+function loadSlides(urls, containerId) {
+    const promises = urls.map(url => fetch(url).then(response => response.text()));
+
+    Promise.all(promises)
+        .then(slides => {
+            const container = document.getElementById(containerId);
+            slides.forEach(slide => {
+                container.innerHTML += slide;
+            });
+            Reveal.initialize({
+                hash: true,
+                plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+            });
+        })
+        .catch(error => console.error('Error loading slides:', error));
+}
