@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>reveal.js</title>
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'">
     <link rel="stylesheet" href="revealjs/dist/reset.css">
     <link rel="stylesheet" href="revealjs/dist/reveal.css">
     <link rel="stylesheet" href="revealjs/dist/theme/black.css">
@@ -15,6 +14,14 @@
     <div class="reveal">
         <div class="slides" id="slides-container">
             <!-- Slides will be loaded here -->
+            <section>
+                <h2>Reusable Slide 1</h2>
+                <p>This is a reusable slide.</p>
+            </section>
+            <section>
+                <h2>Reusable Slide 2</h2>
+                <p>This is a reusable slide.</p>
+            </section>
         </div>
     </div>
 
@@ -24,8 +31,11 @@
     <script src="revealjs/plugin/highlight/highlight.js"></script>
     <script src="script.js"></script>
     <script>
-        // Load slides from multiple HTML files into the slides container
-        loadSlides(['slides/slide1.html', 'slides/slide2.html'], 'slides-container');
+        // Initialize Reveal.js
+        Reveal.initialize({
+            hash: true,
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        });
     </script>
 </body>
 </html>
