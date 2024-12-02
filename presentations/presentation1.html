@@ -9,6 +9,44 @@
     <link rel="stylesheet" href="/revealjs/dist/theme/black.css">
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="/revealjs/plugin/highlight/monokai.css">
+    <style>
+        .highlight-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight-image {
+            display: block;
+            width: 100%;
+        }
+
+        .cover-rectangle {
+            position: absolute;
+            background-color: #1a1a1a; /* Same color as the background */
+            cursor: pointer;
+        }
+
+        .cover-rectangle-1 {
+            top: 0;
+            left: 40%;
+            width: 7%;
+            height: 100%;
+        }
+
+        .cover-rectangle-2 {
+            top: 0;
+            left: 47%;
+            width: 25%;
+            height: 100%;
+        }
+
+        .cover-rectangle-3 {
+            top: 0;
+            left: 72%;
+            width: 28%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
     <div class="reveal">
@@ -16,6 +54,12 @@
             <!-- Slides will be loaded here --> 
             <section>
                 <h2>Reusable Slide 1</h2>
+                <div class="highlight-container">
+                    <img src="/images/automated_habitat_monitoring_colorized.png" alt="Example Image" class="highlight-image">
+                    <div class="cover-rectangle cover-rectangle-1"></div>
+                    <div class="cover-rectangle cover-rectangle-2"></div>
+                    <div class="cover-rectangle cover-rectangle-3"></div>
+                </div>
                 <p>This is a reusable slide.</p>
             </section>
             <section>
@@ -35,6 +79,16 @@
         Reveal.initialize({
             hash: true,
             plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        });
+
+        // JavaScript to remove cover rectangles on click
+        document.addEventListener('DOMContentLoaded', function() {
+            const coverRectangles = document.querySelectorAll('.cover-rectangle');
+            coverRectangles.forEach(rectangle => {
+                rectangle.addEventListener('click', function() {
+                    this.style.display = 'none';
+                });
+            });
         });
     </script>
 </body>
