@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ head | safe }}
+</head>
+<body>
+    <div class="container">
+        {{ header | safe }}
+        <main>
+            <h1>Blog Posts</h1>
+            <div class="blog-posts">
+                {% for post in posts %}
+                <article>
+                    <h2><a href="{{ post.link }}">{{ post.title }}</a></h2>
+                    <p>{{ post.summary }}</p>
+                    <p><small>Published on {{ post.date }}</small></p>
+                </article>
+                {% endfor %}
+            </div>
+        </main>
+        {{ footer | safe }}
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
