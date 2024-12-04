@@ -16,7 +16,7 @@
             <title>{{ post.title }}</title>
             <link>https://johnmartinsson.github.io/{{ post.link }}</link>
             <description>{{ post.summary }}</description>
-            <pubDate>{{ post.date }}</pubDate>
+            <pubDate>{{ post.pubDate }}</pubDate>
             <guid>https://johnmartinsson.github.io/{{ post.link }}</guid>
         </item>
         {% endfor %}

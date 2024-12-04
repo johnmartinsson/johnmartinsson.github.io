@@ -68,6 +68,11 @@ def load_blog_posts(directory):
             metadata = yaml.safe_load(metadata)
             metadata['link'] = f"blog-posts/{filename}"
             metadata['content'] = content
+            # Ensure the date is a string before parsing
+            if isinstance(metadata['date'], datetime):
+                metadata['date'] = metadata['date'].strftime('%Y-%m-%d')
+            elif isinstance(metadata['date'], str):
+                metadata['pubDate'] = datetime.strptime(metadata['date'], '%Y-%m-%d').strftime('%a, %d %b %Y %H:%M:%S +0000')
             posts.append(metadata)
     # Sort posts by date (newest first)
     posts.sort(key=lambda x: x['date'], reverse=True)
