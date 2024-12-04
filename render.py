@@ -110,5 +110,4 @@ output_rss_path = os.path.join('docs', 'rss.xml')
 with open(output_rss_path, 'w') as file:
     file.write(rss_feed)
 
-
 print(f"Generated RSS feed saved to {output_rss_path}")
