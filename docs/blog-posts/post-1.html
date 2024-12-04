@@ -101,11 +101,18 @@
 
 <!-- Efficient and precise annotation -->
 <h2>Efficient and Precise Sound Event Annotation</h2>
-<p>Annotating bioacoustic data is a time-consuming and labor-intensive task. We have therefore developed a method for efficient and precise annotation of local structures in data, which we call <a href="https://github.com/johnmartinsson/adaptive-change-point-detection">adaptive change point detection (A-CPD)</a>. The method can be used to annotate bioacoustic events and has been evaluated on a dataset of animal vocalizations with promising results.</p>
+
+<p>Annotating bioacoustic data is a time-consuming and labor-intensive task. We have therefore developed a method for efficient and precise annotation of local structures in data, which we call adaptive change point detection (A-CPD). The method can be used to annotate bioacoustic events and has been evaluated on a dataset of animal vocalizations with promising results.</p>
 <div class="section-header">
     <img src="/images/efficient_annotation_colorized.png" alt="Efficient and precise annotation of local structures in data.">
 </div>
-<p>The idea is quite simple. We use a change point detection algorithm to find the boundaries of events in the data. The algorithm is adapted to the sound events of interest by updating the change point detection algorithm with each new annotation. This means that the boundary estimates are improved over time, which allows us to annotate events with high precision and efficiency. This is crucial for training and evaluating machine listening models.</p>
+<p>The idea is quite simple. We use a change point detection algorithm to find the boundaries of events in the data. The algorithm is adapted to the sound events of interest by updating the change point detection algorithm with each new annotation. This means that the boundary estimates are improved over time, which allows us to annotate events with high precision and efficiency. This is crucial for training and evaluating machine listening models.
+</p>
+
+<p>
+    <a href="https://doi.org/10.23919/EUSIPCO63174.2024.10715098">doi</a> |
+    <a href="https://github.com/johnmartinsson/adaptive-change-point-detection">code</a>
+</p>
         </main>
         <footer>
     <div class="footer-container">

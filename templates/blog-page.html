@@ -12,7 +12,8 @@
                 {% for post in posts %}
                 <article>
                     <h2><a href="{{ post.link }}">{{ post.title }}</a></h2>
-                    <p>{{ post.summary }}</p>
+                    <p>{{ post.summary }} <a href="https://doi.org/{{ post.doi }}">doi</a> |
+                        <a href="{{ post.code }}">code</a></p>
                     <p><small>Published on {{ post.date }}</small></p>
                 </article>
                 {% endfor %}
