@@ -22,19 +22,19 @@ template = template_env.get_template('index.html')
 rendered_html = template.render(title=metadata['title'], content=content)
 
 # Save the rendered HTML to a file
-output_path = os.path.join('output', metadata['filename'])
+output_path = os.path.join('docs', metadata['filename'])
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
 with open(output_path, 'w') as file:
     file.write(rendered_html)
 
 # Copy styles.css and script.js to the output directory
-shutil.copy('styles.css', 'output/styles.css')
-shutil.copy('script.js', 'output/script.js')
+shutil.copy('styles.css', 'docs/styles.css')
+shutil.copy('script.js', 'docs/script.js')
 
 # Copy images and audio directories to the output directory
 if os.path.exists('images'):
-    shutil.copytree('images', 'output/images', dirs_exist_ok=True)
+    shutil.copytree('images', 'docs/images', dirs_exist_ok=True)
 if os.path.exists('audio'):
-    shutil.copytree('audio', 'output/audio', dirs_exist_ok=True)
+    shutil.copytree('audio', 'docs/audio', dirs_exist_ok=True)
 
 print(f"Rendered HTML saved to {output_path}")
