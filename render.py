@@ -2,6 +2,7 @@ import os
 import shutil
 import jinja2
 import yaml
+from datetime import datetime, timezone
 
 # Function to read a file's content
 def read_file(filepath):
@@ -94,4 +95,20 @@ for post in posts:
     with open(output_post_path, 'w') as file:
         file.write(rendered_post)
 
-print(f"Rendered blog page and posts saved to {output_blog_page_path}")
+print(f"Rendered blog page, and posts saved to {output_blog_page_path}")
+
+# Generate RSS feed
+rss_template = template_env.get_template('rss.xml')
+rss_feed = rss_template.render(
+    posts=posts,
+    pub_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000'),
+    last_build_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
+)
+
+# Save the RSS feed to a file
+output_rss_path = os.path.join('docs', 'rss.xml')
+with open(output_rss_path, 'w') as file:
+    file.write(rss_feed)
+
+
+print(f"Generated RSS feed saved to {output_rss_path}")

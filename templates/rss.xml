@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>John Martinsson's Blog</title>
+        <link>https://johnmartinsson.github.io/</link>
+        <description>Updates and blog posts about John Martinsson's work in bioacoustics and machine listening.</description>
+        <language>en-us</language>
+        <pubDate>{{ pub_date }}</pubDate>
+        <lastBuildDate>{{ last_build_date }}</lastBuildDate>
+        <docs>https://www.rssboard.org/rss-specification</docs>
+        <generator>John Martinsson's Blog Generator</generator>
+        
+        {% for post in posts %}
+        <item>
+            <title>{{ post.title }}</title>
+            <link>https://johnmartinsson.github.io/{{ post.link }}</link>
+            <description>{{ post.summary }}</description>
+            <pubDate>{{ post.date }}</pubDate>
+            <guid>https://johnmartinsson.github.io/{{ post.link }}</guid>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>
