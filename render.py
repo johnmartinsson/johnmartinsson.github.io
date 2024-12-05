@@ -7,6 +7,8 @@ from datetime import datetime, timezone
 from csscompressor import compress
 from jsmin import jsmin
 from PIL import Image
+import subprocess
+
 
 # Function to convert images to WebP
 def convert_images_to_webp(src_dir, dest_dir):
@@ -17,9 +19,23 @@ def convert_images_to_webp(src_dir, dest_dir):
             if file.lower().endswith(('png', 'jpg', 'jpeg')):
                 src_path = os.path.join(root, file)
                 dest_path = os.path.join(dest_dir, os.path.relpath(root, src_dir), os.path.splitext(file)[0] + '.webp')
-                os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-                with Image.open(src_path) as img:
-                    img.save(dest_path, 'webp')
+                if not os.path.exists(dest_path):
+                    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                    with Image.open(src_path) as img:
+                        img.save(dest_path, 'webp')
+
+# Function to convert audio files to WebM
+def convert_audio_to_webm(src_dir, dest_dir):
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
+    for root, _, files in os.walk(src_dir):
+        for file in files:
+            if file.lower().endswith(('mp3', 'wav')):
+                src_path = os.path.join(root, file)
+                dest_path = os.path.join(dest_dir, os.path.relpath(root, src_dir), os.path.splitext(file)[0] + '.webm')
+                if not os.path.exists(dest_path):
+                    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                    subprocess.run(['ffmpeg', '-i', src_path, '-b:a', '64k', dest_path])
 
 # Function to read a file's content
 def read_file(filepath):
@@ -73,9 +89,8 @@ with open('docs/script.js', 'w') as file:
 # Convert images to WebP and copy to the docs directory
 convert_images_to_webp('content/images', 'docs/images')
 
-# Copy audio directories to the docs directory
-if os.path.exists('content/audio'):
-    shutil.copytree('content/audio', 'docs/audio', dirs_exist_ok=True)
+# Convert audio files to WebM and copy to the docs directory
+convert_audio_to_webm('content/audio', 'docs/audio')
 
 print(f"Rendered HTML saved to {output_path}")
 
