@@ -7,6 +7,12 @@
 <link rel="stylesheet" href="/styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="alternate" type="application/rss+xml" title="John Martinsson's Blog" href="/rss.xml">
+
+<!-- Plausible -->
+<script defer data-domain="johnmartinsson.github.io" src="https://plausible.io/js/script.file-downloads.outbound-links.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+<!-- End Plausible -->
+
 <!-- Matomo -->
 <script>
     // Privacy and GDPR friendly web-analytics
@@ -23,6 +29,7 @@
     })();
 </script>
 <!-- End Matomo Code -->
+
 </head>
 <body>
     <div class="container">
@@ -107,11 +114,6 @@
     <img src="/images/efficient_annotation_colorized.png" alt="Efficient and precise annotation of local structures in data.">
 </div>
 <p>The idea is quite simple. We use a change point detection algorithm to find the boundaries of events in the data. The algorithm is adapted to the sound events of interest by updating the change point detection algorithm with each new annotation. This means that the boundary estimates are improved over time, which allows us to annotate events with high precision and efficiency. This is crucial for training and evaluating machine listening models.
-</p>
-
-<p>
-    <a href="https://doi.org/10.23919/EUSIPCO63174.2024.10715098">doi</a> |
-    <a href="https://github.com/johnmartinsson/adaptive-change-point-detection">code</a>
 </p>
         </main>
         <footer>
