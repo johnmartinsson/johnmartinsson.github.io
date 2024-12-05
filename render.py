@@ -6,6 +6,20 @@ from datetime import datetime, timezone
 
 from csscompressor import compress
 from jsmin import jsmin
+from PIL import Image
+
+# Function to convert images to WebP
+def convert_images_to_webp(src_dir, dest_dir):
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
+    for root, _, files in os.walk(src_dir):
+        for file in files:
+            if file.lower().endswith(('png', 'jpg', 'jpeg')):
+                src_path = os.path.join(root, file)
+                dest_path = os.path.join(dest_dir, os.path.relpath(root, src_dir), os.path.splitext(file)[0] + '.webp')
+                os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                with Image.open(src_path) as img:
+                    img.save(dest_path, 'webp')
 
 # Function to read a file's content
 def read_file(filepath):
@@ -54,10 +68,12 @@ js_content = read_file('content/script.js')
 minified_js = jsmin(js_content)
 with open('docs/script.js', 'w') as file:
     file.write(minified_js)
-    
-# Copy images and audio directories to the docs directory
-if os.path.exists('content/images'):
-    shutil.copytree('content/images', 'docs/images', dirs_exist_ok=True)
+
+
+# Convert images to WebP and copy to the docs directory
+convert_images_to_webp('content/images', 'docs/images')
+
+# Copy audio directories to the docs directory
 if os.path.exists('content/audio'):
     shutil.copytree('content/audio', 'docs/audio', dirs_exist_ok=True)
 
