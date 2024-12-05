@@ -4,6 +4,9 @@ import jinja2
 import yaml
 from datetime import datetime, timezone
 
+from csscompressor import compress
+from jsmin import jsmin
+
 # Function to read a file's content
 def read_file(filepath):
     with open(filepath, 'r') as file:
@@ -41,10 +44,17 @@ os.makedirs(os.path.dirname(output_path), exist_ok=True)
 with open(output_path, 'w') as file:
     file.write(rendered_html)
 
-# Copy styles.css and script.js to the docs directory
-shutil.copy('content/styles.css', 'docs/styles.css')
-shutil.copy('content/script.js', 'docs/script.js')
+# Minify and copy styles.css and script.js to the docs directory
+css_content = read_file('content/styles.css')
+minified_css = compress(css_content)
+with open('docs/styles.css', 'w') as file:
+    file.write(minified_css)
 
+js_content = read_file('content/script.js')
+minified_js = jsmin(js_content)
+with open('docs/script.js', 'w') as file:
+    file.write(minified_js)
+    
 # Copy images and audio directories to the docs directory
 if os.path.exists('content/images'):
     shutil.copytree('content/images', 'docs/images', dirs_exist_ok=True)
