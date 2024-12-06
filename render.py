@@ -10,8 +10,8 @@ from PIL import Image
 import subprocess
 
 
-# Function to convert images to WebP
-def convert_images_to_webp(src_dir, dest_dir):
+# Function to convert images to WebP and resize them
+def convert_images_to_webp(src_dir, dest_dir, max_width=800):
     if not os.path.exists(dest_dir):
         os.makedirs(dest_dir)
     for root, _, files in os.walk(src_dir):
@@ -22,6 +22,11 @@ def convert_images_to_webp(src_dir, dest_dir):
                 if not os.path.exists(dest_path):
                     os.makedirs(os.path.dirname(dest_path), exist_ok=True)
                     with Image.open(src_path) as img:
+                        # Resize image if it exceeds max_width
+                        if img.width > max_width:
+                            ratio = max_width / float(img.width)
+                            new_height = int((float(img.height) * float(ratio)))
+                            img = img.resize((max_width, new_height), Image.LANCZOS)
                         img.save(dest_path, 'webp')
 
 # Function to convert audio files to WebM
