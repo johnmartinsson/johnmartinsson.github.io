@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ head | safe }}
+</head>
+<body>
+    <div class="container">
+        {{ header | safe }}
+        <main>
+            {{ content | safe}}
+        </main>
+        {{ footer | safe }}
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
