@@ -194,3 +194,13 @@ print(f"Generated sitemap saved to {output_sitemap_path}")
 
 # Copy robots.txt to the docs directory
 shutil.copy('content/robots.txt', 'docs/robots.txt')
+
+
+# Function to resize favicon.ico to 32x32 pixels
+def resize_favicon(src_path, dest_path, size=(32, 32)):
+    with Image.open(src_path) as img:
+        img = img.resize(size, Image.LANCZOS)
+        img.save(dest_path, format='webp')
+
+# Resize and copy favicon.ico to the docs directory
+resize_favicon('content/favicon.ico', 'docs/favicon.ico')
