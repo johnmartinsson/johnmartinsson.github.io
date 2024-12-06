@@ -29,3 +29,18 @@ function togglePlayPause(id, element) {
         icon.classList.add('play');
     });
 }
+
+// Function to load audio when needed
+function loadAudioOnPlay(audioId, sourceId, src) {
+    var audio = document.getElementById(audioId);
+    var audioSource = document.getElementById(sourceId);
+    audio.addEventListener('play', function() {
+        if (!audioSource.src) {
+            audioSource.src = src;
+            audio.load();
+        }
+    });
+}
+
+// Call the function to load audio when needed
+loadAudioOnPlay('audio-about-me', 'audio-source-about-me', '/audio/about-me.webm');
