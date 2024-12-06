@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>John Martinsson's Blog</title>
-<meta name="description" content="Updates and blog posts about John Martinsson's work in bioacoustics and machine listening.">
+<title>Efficient and Precise Sound Event Annotation</title>
+<meta name="description" content="Annotating bioacoustic data is a time-consuming and labor-intensive task. We have therefore developed a method for efficient and precise annotation of local structures in data, which we call adaptive change point detection (A-CPD).">
 <link rel="stylesheet" href="/styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="alternate" type="application/rss+xml" title="John Martinsson's Blog" href="/rss.xml">
@@ -103,24 +103,17 @@
     </div>
 </header>
         <main>
-            <h1>Blog Posts</h1>
-            <div class="blog-posts">
-                
-                <article>
-                    <h2><a href="blog/post-2.html">Efficient and Precise Sound Event Annotation</a></h2>
-                    <p>Annotating bioacoustic data is a time-consuming and labor-intensive task. We have therefore developed a method for efficient and precise annotation of local structures in data, which we call adaptive change point detection (A-CPD). <a href="https://doi.org/10.23919/EUSIPCO63174.2024.10715098">doi</a> |
-                        <a href="https://github.com/johnmartinsson/adaptive-change-point-detection">code</a></p>
-                    <p><small>Published on 2024-12-04</small></p>
-                </article>
-                
-                <article>
-                    <h2><a href="blog/efficient-and-precise-sound-event-annotation.html">Efficient and Precise Sound Event Annotation</a></h2>
-                    <p>Annotating bioacoustic data is a time-consuming and labor-intensive task. We have therefore developed a method for efficient and precise annotation of local structures in data, which we call adaptive change point detection (A-CPD). <a href="https://doi.org/10.23919/EUSIPCO63174.2024.10715098">doi</a> |
-                        <a href="https://github.com/johnmartinsson/adaptive-change-point-detection">code</a></p>
-                    <p><small>Published on 2024-12-04</small></p>
-                </article>
-                
-            </div>
+            
+
+<!-- Efficient and precise annotation -->
+<h2>Efficient and Precise Sound Event Annotation</h2>
+
+<p>Annotating bioacoustic data is a time-consuming and labor-intensive task. We have therefore developed a method for efficient and precise annotation of local structures in data, which we call adaptive change point detection (A-CPD). The method can be used to annotate bioacoustic events and has been evaluated on a dataset of animal vocalizations with promising results.</p>
+<div class="section-header">
+    <img src="/images/efficient_annotation_colorized.webp" alt="Efficient and precise annotation of local structures in data." loading="lazy">
+</div>
+<p>The idea is quite simple. We use a change point detection algorithm to find the boundaries of events in the data. The algorithm is adapted to the sound events of interest by updating the change point detection algorithm with each new annotation. This means that the boundary estimates are improved over time, which allows us to annotate events with high precision and efficiency. This is crucial for training and evaluating machine listening models.
+</p>
         </main>
         <footer>
     <div class="footer-container">
@@ -145,6 +138,6 @@
     <p>&copy; 2024 John Martinsson. All rights reserved.</p>
 </footer>
     </div>
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

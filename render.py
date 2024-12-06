@@ -113,7 +113,7 @@ def load_blog_posts(directory):
             content = read_file(filepath)
             metadata, content = content.split('---', 2)[1:]
             metadata = yaml.safe_load(metadata)
-            metadata['link'] = f"blog-posts/{filename}"
+            metadata['link'] = f"blog/{filename}"
             metadata['content'] = content
             # Ensure the date is a string before parsing
             if isinstance(metadata['date'], datetime):
@@ -124,7 +124,7 @@ def load_blog_posts(directory):
     return posts
 
 # Load blog posts
-posts = load_blog_posts('content/blog-posts')
+posts = load_blog_posts('content/blog')
 
 # Render the blog page template with blog posts
 blog_page_template = template_env.get_template('blog-page.html')
@@ -172,3 +172,20 @@ with open(output_rss_path, 'w') as file:
     file.write(rss_feed)
 
 print(f"Generated RSS feed saved to {output_rss_path}")
+
+# Generate sitemap
+sitemap_template = template_env.get_template('sitemap.xml')
+sitemap = sitemap_template.render(
+    posts=posts,
+    lastmod=datetime.now(timezone.utc).strftime('%Y-%m-%d')
+)
+
+# Save the sitemap to a file
+output_sitemap_path = os.path.join('docs', 'sitemap.xml')
+with open(output_sitemap_path, 'w') as file:
+    file.write(sitemap)
+
+print(f"Generated sitemap saved to {output_sitemap_path}")
+
+# Copy robots.txt to the docs directory
+shutil.copy('content/robots.txt', 'docs/robots.txt')
