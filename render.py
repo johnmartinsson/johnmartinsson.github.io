@@ -43,7 +43,6 @@ def read_file(filepath):
         return file.read()
 
 # Load partials
-head = read_file('templates/head.html')
 header = read_file('templates/header.html')
 footer = read_file('templates/footer.html')
 
@@ -63,10 +62,17 @@ metadata, content = content.split('---', 2)[1:]
 metadata = yaml.safe_load(metadata)
 
 # Load the template
+head_template = template_env.get_template('head.html')
 template = template_env.get_template('index.html')
 
 # Render the template with metadata and content
-rendered_html = template.render(title=metadata['title'], head=head, header=header, content=content, footer=footer)
+rendered_html = template.render(
+    title=metadata['title'], 
+    head=head_template.render(meta_title=metadata['title'], meta_description=metadata['description']), 
+    header=header, 
+    content=content, 
+    footer=footer
+)
 
 # Save the rendered HTML to a file
 output_path = os.path.join('docs', metadata['filename'])
@@ -122,7 +128,12 @@ posts = load_blog_posts('content/blog-posts')
 
 # Render the blog page template with blog posts
 blog_page_template = template_env.get_template('blog-page.html')
-rendered_blog_page = blog_page_template.render(head=head, header=header, posts=posts, footer=footer)
+rendered_blog_page = blog_page_template.render(
+    head=head_template.render(meta_title="John Martinsson's Blog", meta_description="Updates and blog posts about John Martinsson's work in bioacoustics and machine listening."),
+    header=header, 
+    posts=posts, 
+    footer=footer
+)
 
 # Save the rendered blog page to a file
 output_blog_page_path = os.path.join('docs', 'blog.html')
@@ -133,7 +144,13 @@ with open(output_blog_page_path, 'w') as file:
 # Render each blog post
 for post in posts:
     post_template = template_env.get_template('index.html')
-    rendered_post = post_template.render(title=post['title'], head=head, header=header, content=post['content'], footer=footer)
+    rendered_post = post_template.render(
+        title=post['title'], 
+        head=head_template.render(meta_title=post['title'], meta_description=post['description']),
+        header=header, 
+        content=post['content'], 
+        footer=footer
+    )
     output_post_path = os.path.join('docs', post['link'])
     os.makedirs(os.path.dirname(output_post_path), exist_ok=True)
     with open(output_post_path, 'w') as file:
