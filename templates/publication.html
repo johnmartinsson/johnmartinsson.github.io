@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ head | safe }}
+</head>
+<body>
+    <div class="container">
+        <header>
+            {{ header | safe }}
+        </header>
+        <main>
+            <h1>{{ title }}</h1>
+            <p><strong>Authors:</strong> {{ authors }}</p>
+            <p><strong>Published in:</strong> {{ proceedings }}</p>
+            <p><strong>Year:</strong> {{ year }}</p>
+            <p><strong>Location:</strong> {{ location }} </p>
+            <div class="abstract">
+                <h2>Abstract</h2>
+                <p>{{ abstract }}</p>
+            </div>
+            <div class="bibtex">
+                <h2>BibTeX</h2>
+                <pre>{{ bibtex }}</pre>
+            </div>
+            <div class="links">
+                <a href="{{ pdf_link }}" target="_blank">PDF</a>
+                <a href="{{ code_link }}" target="_blank">Code</a>
+                <a href="https://doi.org/{{ doi }}" target="_blank">DOI</a>
+                <a href="#" class="copy-bibtex" data-bibtex="{{ bibtex }}">Copy BibTeX</a>
+
+            </div>
+            <h2>Author Comments</h2>
+        </main>
+        <footer>
+            {{ footer | safe }}
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.copy-bibtex').forEach(function(element) {
+                element.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var bibtex = this.getAttribute('data-bibtex');
+                    navigator.clipboard.writeText(bibtex).then(function() {
+                        alert('BibTeX copied to clipboard!');
+                    }, function(err) {
+                        console.error('Could not copy text: ', err);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

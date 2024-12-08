@@ -242,3 +242,123 @@ h1 {
 .publications-list a:hover {
     text-decoration: underline; /* Add underline on hover */
 }
+
+/* Styling for publication page */
+.publications-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.publication {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    background-color: #fcfcf2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.publication-image {
+    display: flex;
+    align-items: center; /* Center image vertically */
+    justify-content: center; /* Center image horizontally */
+    margin-right: 20px;
+}
+
+.publication-image img {
+    max-width: 150px; /* Larger image */
+    max-height: 150px; /* Larger image */
+}
+
+.publication-reference {
+    flex: 1;
+}
+
+.publication-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.publication-links a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fcfcf2;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.publication-links a:hover {
+    background-color: #0056b3;
+}
+
+.abstract, .bibtex, .links {
+    margin-top: 20px;
+}
+
+.abstract h2, .bibtex h2 {
+    color: #555;
+}
+
+.bibtex pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ddd;
+    overflow-x: auto;
+    word-wrap: break-word; /* Ensure long words break to fit within the container */
+    white-space: pre-wrap; /* Preserve whitespace and wrap lines as needed */
+}
+
+.links a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.links a:hover {
+    background-color: #0056b3;
+}
+
+/* Navbar styling */
+.navbar {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.navbar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar-item {
+    display: inline;
+}
+
+.navbar-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #fcfcf2; /* Light earthy tone */
+    color: #6f4c3e; /* Brown text */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 20px; /* Larger text */
+}
+
+.navbar-link:hover {
+    background-color: #d4cbb3; /* Slightly darker earthy tone for hover */
+}

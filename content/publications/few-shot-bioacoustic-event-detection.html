@@ -1,0 +1,24 @@
+---
+title: "Few-Shot Bioacoustic Event Detection Using an Event-Length Adapted Ensemble of Prototypical Networks"
+featured: true
+authors: "John Martinsson, Martin Willbo, Aleksis Pirinen, Olof Mogren, Maria Sandsten"
+proceedings: "Detection and Classification of Acoustic Scenes and Events 2022"
+location: "Nancy, France"
+year: 2022
+abstract: "In this paper we study two major challenges in few-shot bioacoustic event detection: variable event lengths and false-positives. We use prototypical networks where the embedding function is trained using a multi-label sound event detection model instead of using episodic training as the proxy task on the provided training dataset. This is motivated by polyphonic sound events being present in the base training data. We propose a method to choose the embedding function based on the average event length of the few-shot examples and show that this makes the method more robust towards variable event lengths. Further, we show that an ensemble of prototypical neural networks trained on different training and validation splits of time-frequency images with different loudness normalizations reduces false-positives. In addition, we present an analysis on the effect that the studied loudness normalization techniques have on the performance of the prototypical network ensemble. Overall, per-channel energy normalization (PCEN) outperforms the standard log transform for this task. The method uses no data augmentation and no external data. The proposed approach achieves a F-score of 48.0% when evaluated on the hidden test set of the Detection and Classification of Acoustic Scenes and Events (DCASE) task 5."
+bibtex: |
+  @INPROCEEDINGS{martinsson2022fewshot,
+    author={Martinsson, John and Willbo, Martin and Pirinen, Aleksis and Mogren, Olof and Sandsten, Maria},
+    booktitle={Detection and Classification of Acoustic Scenes and Events 2022}, 
+    title={{Few-Shot Bioacoustic Event Detection Using an Event-Length Adapted Ensemble of Prototypical Networks}}, 
+    year={2022},
+    volume={},
+    number={},
+    pages={},
+    keywords={Few-shot learning;Bioacoustics;Event detection;Prototypical networks;Deep learning},
+  }
+image: "/images/few_shot_bioacoustic_event_detection_colorized.webp"
+pdf_link: "/pdfs/few-shot-bioacoustic-event-detection.pdf"
+code_link: "https://github.com/johnmartinsson/few-shot-learning-bioacoustics"
+doi: ""
+---

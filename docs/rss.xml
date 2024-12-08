@@ -5,8 +5,8 @@
         <link>https://johnmartinsson.org/</link>
         <description>Updates and blog posts about John Martinsson's work in bioacoustics and machine listening.</description>
         <language>en-us</language>
-        <pubDate>Fri, 06 Dec 2024 22:02:29 +0000</pubDate>
-        <lastBuildDate>Fri, 06 Dec 2024 22:02:29 +0000</lastBuildDate>
+        <pubDate>Sun, 08 Dec 2024 15:50:42 +0000</pubDate>
+        <lastBuildDate>Sun, 08 Dec 2024 15:50:42 +0000</lastBuildDate>
         <docs>https://www.rssboard.org/rss-specification</docs>
         <generator>John Martinsson's Blog Generator</generator>
         <atom:link href="https://johnmartinsson.org/rss.xml" rel="self" type="application/rss+xml" />
@@ -18,6 +18,32 @@
             <description>Annotating bioacoustic data is a time-consuming and labor-intensive task. We have therefore developed a method for efficient and precise annotation of local structures in data, which we call adaptive change point detection (A-CPD).</description>
             <pubDate>Wed, 04 Dec 2024 00:00:00 +0000</pubDate>
             <guid isPermaLink="false">10.23919/EUSIPCO63174.2024.10715098</guid>
+        </item>
+        
+        
+        
+        <item>
+            <title>DMEL: The Differentiable Log-Mel Spectrogram as a Trainable Layer in Neural Networks</title>
+            <link>https://johnmartinsson.org/publications/differentiable-log-mel-spectrogram.html</link>
+            <description>In this paper we present the differentiable log-Mel spectrogram (DMEL) for audio classification. DMEL uses a Gaussian window, with a window length that can be jointly optimized with the neural network. DMEL is used as the input layer in different neural networks and evaluated on standard audio datasets. We show that DMEL achieves a higher average test accuracy for sub-optimal initial choices of the window length when compared to a baseline with a fixed window length. In addition, we analyse the computational cost of DMEL and compare to a standard hyperparameter search over different window lengths, showing favorable results for DMEL. Finally, an empirical evaluation on a carefully designed dataset is performed to investigate if the differentiable spectrogram actually learns the optimal window length. The design of the dataset relies on the theory of spectrogram resolution. We also empirically evaluate the convergence rate to the optimal window length. DOI: 10.1109/ICASSP48485.2024.10446816</description>
+            <pubDate>2024-01-01T00:00:00 +0000</pubDate>
+            <guid isPermaLink="false">10.1109/ICASSP48485.2024.10446816</guid>
+        </item>
+        
+        <item>
+            <title>From Weak to Strong Sound Event Labels using Adaptive Change-Point Detection and Active Learning</title>
+            <link>https://johnmartinsson.org/publications/adaptive-change-point-detection.html</link>
+            <description>We propose an adaptive change point detection method (A-CPD) for machine guided weak label annotation of audio recording segments. The goal is to maximize the amount of information gained about the temporal activations of the target sounds. For each unlabeled audio recording, we use a prediction model to derive a probability curve used to guide annotation. The prediction model is initially pre-trained on available annotated sound event data with classes that are disjoint from the classes in the unlabeled dataset. The prediction model then gradually adapts to the annotations provided by the annotator in an active learning loop. We derive query segments to guide the weak label annotator towards strong labels, using change point detection on these probabilities. We show that it is possible to derive strong labels of high quality with a limited annotation budget, and show favorable results for A-CPD when compared to two baseline query segment strategies. DOI: 10.23919/EUSIPCO63174.2024.10715098</description>
+            <pubDate>2024-01-01T00:00:00 +0000</pubDate>
+            <guid isPermaLink="false">10.23919/EUSIPCO63174.2024.10715098</guid>
+        </item>
+        
+        <item>
+            <title>Few-Shot Bioacoustic Event Detection Using an Event-Length Adapted Ensemble of Prototypical Networks</title>
+            <link>https://johnmartinsson.org/publications/few-shot-bioacoustic-event-detection.html</link>
+            <description>In this paper we study two major challenges in few-shot bioacoustic event detection: variable event lengths and false-positives. We use prototypical networks where the embedding function is trained using a multi-label sound event detection model instead of using episodic training as the proxy task on the provided training dataset. This is motivated by polyphonic sound events being present in the base training data. We propose a method to choose the embedding function based on the average event length of the few-shot examples and show that this makes the method more robust towards variable event lengths. Further, we show that an ensemble of prototypical neural networks trained on different training and validation splits of time-frequency images with different loudness normalizations reduces false-positives. In addition, we present an analysis on the effect that the studied loudness normalization techniques have on the performance of the prototypical network ensemble. Overall, per-channel energy normalization (PCEN) outperforms the standard log transform for this task. The method uses no data augmentation and no external data. The proposed approach achieves a F-score of 48.0% when evaluated on the hidden test set of the Detection and Classification of Acoustic Scenes and Events (DCASE) task 5. DOI: </description>
+            <pubDate>2022-01-01T00:00:00 +0000</pubDate>
+            <guid isPermaLink="false"></guid>
         </item>
         
     </channel>

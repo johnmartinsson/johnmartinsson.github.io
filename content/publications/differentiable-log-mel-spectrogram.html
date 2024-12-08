@@ -1,0 +1,25 @@
+---
+title: "DMEL: The Differentiable Log-Mel Spectrogram as a Trainable Layer in Neural Networks"
+featured: false
+authors: "John Martinsson, Maria Sandsten"
+proceedings: "ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)"
+location: "Seoul, Korea, Republic of"
+year: 2024
+abstract: "In this paper we present the differentiable log-Mel spectrogram (DMEL) for audio classification. DMEL uses a Gaussian window, with a window length that can be jointly optimized with the neural network. DMEL is used as the input layer in different neural networks and evaluated on standard audio datasets. We show that DMEL achieves a higher average test accuracy for sub-optimal initial choices of the window length when compared to a baseline with a fixed window length. In addition, we analyse the computational cost of DMEL and compare to a standard hyperparameter search over different window lengths, showing favorable results for DMEL. Finally, an empirical evaluation on a carefully designed dataset is performed to investigate if the differentiable spectrogram actually learns the optimal window length. The design of the dataset relies on the theory of spectrogram resolution. We also empirically evaluate the convergence rate to the optimal window length."
+bibtex: |
+  @INPROCEEDINGS{martinsson2024dmel,
+    author={Martinsson, John and Sandsten, Maria},
+    booktitle={ICASSP 2024 - 2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
+    title={{DMEL: The Differentiable Log-Mel Spectrogram as a Trainable Layer in Neural Networks}}, 
+    year={2024},
+    volume={},
+    number={},
+    pages={},
+    keywords={Differentiable spectrogram;Log-Mel spectrogram;Audio classification;Neural networks;Gaussian window;Hyperparameter optimization},
+    doi={10.1109/ICASSP48485.2024.10446816}
+  }
+image: "/images/differentiable_log_mel_spectrogram_colorized.webp"
+pdf_link: "/pdfs/differentiable-log-mel-spectrogram.pdf"
+doi: "10.1109/ICASSP48485.2024.10446816"
+code_link: "https://github.com/johnmartinsson/differentiable-mel-spectrogram"
+---

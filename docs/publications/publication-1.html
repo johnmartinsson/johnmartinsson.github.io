@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>John Martinsson's Research and Blog</title>
-<meta name="description" content="John Martinsson's research and blog on machine listening for bioacoustics.">
+<title>Efficient Annotation of Bioacoustic Data</title>
+<meta name="description" content="This paper presents a novel method for efficient annotation of bioacoustic data using machine learning techniques. The proposed method significantly reduces the time and effort required for manual annotation while maintaining high accuracy.">
 <link rel="stylesheet" href="/styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="alternate" type="application/rss+xml" title="John Martinsson's Blog" href="/rss.xml">
@@ -34,6 +34,7 @@
 <body>
     <div class="container">
         <header>
+            <header>
     <!-- Banner Image -->
     <div class="banner">
         <img src="/images/bioacoustics_cropped_2.webp" alt="Banner Image" class="banner-image" loading="lazy">
@@ -82,118 +83,76 @@
 
     <!-- Name and socials -->
     <h1>John Martinsson</h1>
-    <nav class="navbar">
-        <ul class="navbar-list">
-            <li class="navbar-item">
-                <a href="/" class="navbar-link">Home</a>
-            </li>
-            <li class="navbar-item">
-                <a href="/publications.html" class="navbar-link">Publications</a>
-            </li>
-            <li class="navbar-item">
-                <a href="/blog.html" class="navbar-link">Blog</a>
-            </li>
-        </ul>
-    </nav>
+    <div class="social-links">
+        <div class="social-link">
+            <a href="https://github.com/johnmartinsson" target="_blank" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+                <span>GitHub</span>
+            </a>
+        </div>
+        <div class="social-link">
+            <a href="https://scholar.google.se/citations?hl=sv&user=sAMIwlMAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" aria-label="Google Scholar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269M12 10a7 7 0 1 0 0 14a7 7 0 0 0 0-14"/></svg>
+                <span>Google Scholar</span>
+            </a>
+        </div>
+        <div class="social-link">
+            <a href="https://bsky.app/profile/johnmartinsson.bsky.social" target="_blank" aria-label="Bluesky">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 11.388c-.906-1.761-3.372-5.044-5.665-6.662c-2.197-1.55-3.034-1.283-3.583-1.033C2.116 3.978 2 4.955 2 5.528c0 .575.315 4.709.52 5.4c.68 2.28 3.094 3.05 5.32 2.803c-3.26.483-6.157 1.67-2.36 5.898c4.178 4.325 5.726-.927 6.52-3.59c.794 2.663 1.708 7.726 6.444 3.59c3.556-3.59.977-5.415-2.283-5.898c2.225.247 4.64-.523 5.319-2.803c.205-.69.52-4.825.52-5.399c0-.575-.116-1.55-.752-1.838c-.549-.248-1.386-.517-3.583 1.033c-2.293 1.621-4.76 4.904-5.665 6.664"/></svg>
+                <span>Bluesky</span>
+            </a>
+        </div>
+    </div>
 </header>
+        </header>
         <main>
-            
-
-<section class="research_vision">
-    <!-- Research vision -->
-    <h2>Machine Listening for Bioacoustics</h2>
-    <p>
-        My research interests lie in applying machine learning to automated sensing and perception of natural environments, particularly through sound. I aim to develop machine listening methods that help monitor the impacts humans have on ecosystems by enabling automated species detection and biodiversity estimation in bioacoustic data.
-    </p>
-    <div class="section-header">
-        <img src="/images/automated_habitat_monitoring_colorized.webp" alt="Automated habitat monitoring and the effect of human interventions." loading="lazy">
-    </div>
-    <p>
-        I am particularly interested in annotation-efficient machine listening methods for bioacoustics and ecoacoustics. I believe there is immense potential in using acoustic sensors and machine listening techniques to quantify the state of our natural environment, especially for monitoring animal populations.
-    </p>
-    <div class="section-header">
-        <img src="/images/machine_learning_for_habitat_monitoring_colorized.webp" alt="Automated analysis of acoustic and visual sensor data using machine learning." loading="lazy">
-    </div>
-    <p>
-        The information in sound is often complementary to that of images, and the combination of the two can give a more complete understanding of the environment. While larger animals such as the fox may be easier to capture on camera, smaller but acoustically active animals like birds and frogs may be easier to capture with a microphone. I am excited about the possibilities of combining acoustic and visual sensor data to monitor ecosystems and the effects of human interventions.
-    </p>
-    <!-- AI-generated podcast -->
-    <h2>Listen to This AI-Generated Podcast</h2>
-    <p>
-        I prompted NotebookLM with the text above to generate a short podcast about my research vision. It offers an engaging listen and captures my aspirations for machine listening in bioacoustics quite well. While my contributions to the field are exaggerated, it serves as a fun experiment in AI-generated content.
-    </p>
-
-    <audio controls preload="none">
-        <source src="/audio/about-me.webm" type="audio/webm">
-      Your browser does not support the audio element.
-    </audio>    
-
-    <!-- People I work with -->
-    <h2>People I Work With</h2> 
-    <p>
-        I am a PhD student at RISE working in the <a href="https://dl-group.se/">deep learning group</a>, and affiliated with Lund University. My supervisors are <a href="https://mogren.one">Olof Mogren</a> and <a href="https://www.maths.lu.se/english/research/staff/mariasandsten/">Maria Sandsten</a>. After a 2-month research visit at the <a href="https://webpages.tuni.fi/arg/">audio research group</a> at Tampere University, I have also been collaborating with <a href="https://homepages.tuni.fi/tuomas.virtanen/">Tuomas Virtanen</a>.
-    </p>
-    <h2>Featured Publications</h2>
-    <p>
-        A selection of publications related to machine listening, bioacoustics, and environmental monitoring. You can soon find all my publications <a href="/publications.html" target="_blank">here</a>. For now, all publications are on <a href="https://scholar.google.se/citations?hl=sv&user=sAMIwlMAAAAJ&view_op=list_works&sortby=pubdate" target="_blank"> Google Scholar</a>.
-    </p>
-</section>
-            <div class="publications-list">
-                
-                <div class="publication">
-                    <div class="publication-image">
-                        <img src="/images/efficient_annotation_colorized.webp" alt="From Weak to Strong Sound Event Labels using Adaptive Change-Point Detection and Active Learning">
-                    </div>
-                    <div class="publication-reference">
-                        John Martinsson, Olof Mogren, Maria Sandsten, Tuomas Virtanen, <a href="publications/adaptive-change-point-detection.html" target="_blank">From Weak to Strong Sound Event Labels using Adaptive Change-Point Detection and Active Learning</a>, <em>2024 32nd European Signal Processing Conference (EUSIPCO)</em>, Lyon, France, 2024.
-                    </div>
-                    <div class="publication-links">
-                        <a href="publications/adaptive-change-point-detection.html" target="_blank">Link</a>
-                        
-                    </div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-image">
-                        <img src="/images/few_shot_bioacoustic_event_detection_colorized.webp" alt="Few-Shot Bioacoustic Event Detection Using an Event-Length Adapted Ensemble of Prototypical Networks">
-                    </div>
-                    <div class="publication-reference">
-                        John Martinsson, Martin Willbo, Aleksis Pirinen, Olof Mogren, Maria Sandsten, <a href="publications/few-shot-bioacoustic-event-detection.html" target="_blank">Few-Shot Bioacoustic Event Detection Using an Event-Length Adapted Ensemble of Prototypical Networks</a>, <em>Detection and Classification of Acoustic Scenes and Events 2022</em>, Nancy, France, 2022.
-                    </div>
-                    <div class="publication-links">
-                        <a href="publications/few-shot-bioacoustic-event-detection.html" target="_blank">Link</a>
-                        
-                    </div>
-                </div>
-                
+            <h1>Efficient Annotation of Bioacoustic Data</h1>
+            <p><strong>Authors:</strong> John Martinsson, Olof Mogren, Maria Sandsten</p>
+            <p><strong>Published in:</strong> Journal of Bioacoustics</p>
+            <p><strong>Year:</strong> 2024</p>
+            <div class="abstract">
+                <h2>Abstract</h2>
+                <p>This paper presents a novel method for efficient annotation of bioacoustic data using machine learning techniques. The proposed method significantly reduces the time and effort required for manual annotation while maintaining high accuracy.</p>
+            </div>
+            <div class="bibtex">
+                <h2>BibTeX</h2>
+                <pre>@article{martinsson2024efficient,
+  title={Efficient Annotation of Bioacoustic Data},
+  author={Martinsson, John and Mogren, Olof and Sandsten, Maria},
+  journal={Journal of Bioacoustics},
+  year={2024}
+}
+</pre>
+            </div>
+            <div class="links">
+                <a href="/pdfs/publication-1.pdf" target="_blank">PDF</a>
+                <a href="https://doi.org/10.1234/bioacoustics.2024.12345" target="_blank">DOI</a>
             </div>
         </main>
         <footer>
+            <footer>
     <div class="footer-container">
         <div class="social-links">
             <div class="social-link">
                 <a href="https://github.com/johnmartinsson" target="_blank" aria-label="GitHub">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
-                    <span>GitHub</span>
                 </a>
             </div>
             <div class="social-link">
                 <a href="https://scholar.google.se/citations?hl=sv&user=sAMIwlMAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" aria-label="Google Scholar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M5.242 13.769L0 9.5L12 0l12 9.5l-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269M12 10a7 7 0 1 0 0 14a7 7 0 0 0 0-14"/></svg>
-                    <span>Google Scholar</span>
                 </a>
             </div>
             <div class="social-link">
                 <a href="https://bsky.app/profile/johnmartinsson.bsky.social" target="_blank" aria-label="Bluesky">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 11.388c-.906-1.761-3.372-5.044-5.665-6.662c-2.197-1.55-3.034-1.283-3.583-1.033C2.116 3.978 2 4.955 2 5.528c0 .575.315 4.709.52 5.4c.68 2.28 3.094 3.05 5.32 2.803c-3.26.483-6.157 1.67-2.36 5.898c4.178 4.325 5.726-.927 6.52-3.59c.794 2.663 1.708 7.726 6.444 3.59c3.556-3.59.977-5.415-2.283-5.898c2.225.247 4.64-.523 5.319-2.803c.205-.69.52-4.825.52-5.399c0-.575-.116-1.55-.752-1.838c-.549-.248-1.386-.517-3.583 1.033c-2.293 1.621-4.76 4.904-5.665 6.664"/></svg>
-                    <span>Bluesky</span>
                 </a>
             </div>
         </div>
     </div>
     <p>&copy; 2024 John Martinsson. All rights reserved.</p>
 </footer>
+        </footer>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>

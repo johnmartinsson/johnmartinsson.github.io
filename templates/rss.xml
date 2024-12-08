@@ -20,5 +20,15 @@
             <guid isPermaLink="false">{{ post.doi }}</guid>
         </item>
         {% endfor %}
+        
+        {% for publication in publications %}
+        <item>
+            <title>{{ publication.title }}</title>
+            <link>https://johnmartinsson.org/{{ publication.link }}</link>
+            <description>{{ publication.abstract }} DOI: {{ publication.doi }}</description>
+            <pubDate>{{ publication.year }}-01-01T00:00:00 +0000</pubDate>
+            <guid isPermaLink="false">{{ publication.doi }}</guid>
+        </item>
+        {% endfor %}
     </channel>
 </rss>

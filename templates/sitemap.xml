@@ -14,8 +14,22 @@
     </url>
     {% for post in posts %}
     <url>
-        <loc>https://johnmartinsson.org/blog/{{ post.link }}</loc>
+        <loc>https://johnmartinsson.org/{{ post.link }}</loc>
         <lastmod>{{ post.date.strftime('%Y-%m-%d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    {% endfor %}
+    <url>
+        <loc>https://johnmartinsson.org/publications.html</loc>
+        <lastmod>{{ lastmod }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    {% for publication in publications %}
+    <url>
+        <loc>https://johnmartinsson.org/{{ publication.link }}</loc>
+        <lastmod>{{ lastmod }}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>

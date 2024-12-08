@@ -9,7 +9,6 @@ from jsmin import jsmin
 from PIL import Image
 import subprocess
 
-
 # Function to convert images to WebP and resize them
 def convert_images_to_webp(src_dir, dest_dir, max_width=800):
     if not os.path.exists(dest_dir):
@@ -48,53 +47,16 @@ def read_file(filepath):
         return file.read()
 
 # Load partials
-header = read_file('templates/header.html')
 footer = read_file('templates/footer.html')
 
 # Set up Jinja2 environment
 template_loader = jinja2.FileSystemLoader(searchpath="templates")
 template_env = jinja2.Environment(loader=template_loader)
 
-###############################################################################
-# docs/index.html
-###############################################################################
-
-# Load the content file
-content = read_file('content/index.html')
-
-# Extract metadata and content
-metadata, content = content.split('---', 2)[1:]
-metadata = yaml.safe_load(metadata)
-
 # Load the template
 head_template = template_env.get_template('head.html')
+header_template = template_env.get_template('header.html')
 template = template_env.get_template('index.html')
-
-# Render the template with metadata and content
-rendered_html = template.render(
-    title=metadata['title'], 
-    head=head_template.render(meta_title=metadata['title'], meta_description=metadata['description']), 
-    header=header, 
-    content=content, 
-    footer=footer
-)
-
-# Save the rendered HTML to a file
-output_path = os.path.join('docs', metadata['filename'])
-os.makedirs(os.path.dirname(output_path), exist_ok=True)
-with open(output_path, 'w') as file:
-    file.write(rendered_html)
-
-# Minify and copy styles.css and script.js to the docs directory
-css_content = read_file('content/styles.css')
-minified_css = compress(css_content)
-with open('docs/styles.css', 'w') as file:
-    file.write(minified_css)
-
-js_content = read_file('content/script.js')
-minified_js = jsmin(js_content)
-with open('docs/script.js', 'w') as file:
-    file.write(minified_js)
 
 
 # Convert images to WebP and copy to the docs directory
@@ -102,8 +64,6 @@ convert_images_to_webp('content/images', 'docs/images')
 
 # Convert audio files to WebM and copy to the docs directory
 convert_audio_to_webm('content/audio', 'docs/audio')
-
-print(f"Rendered HTML saved to {output_path}")
 
 ###############################################################################
 # docs/blog.html
@@ -132,10 +92,10 @@ def load_blog_posts(directory):
 posts = load_blog_posts('content/blog')
 
 # Render the blog page template with blog posts
-blog_page_template = template_env.get_template('blog-page.html')
+blog_page_template = template_env.get_template('blog.html')
 rendered_blog_page = blog_page_template.render(
     head=head_template.render(meta_title="John Martinsson's Blog", meta_description="Updates and blog posts about John Martinsson's work in bioacoustics and machine listening."),
-    header=header, 
+    header=header_template.render(name="John Martinsson"),
     posts=posts, 
     footer=footer
 )
@@ -152,7 +112,7 @@ for post in posts:
     rendered_post = post_template.render(
         title=post['title'], 
         head=head_template.render(meta_title=post['title'], meta_description=post['description']),
-        header=header, 
+        header=header_template.render(name="John Martinsson"),
         content=post['content'], 
         footer=footer
     )
@@ -163,10 +123,133 @@ for post in posts:
 
 print(f"Rendered blog page, and posts saved to {output_blog_page_path}")
 
+# Copy robots.txt to the docs directory
+shutil.copy('content/robots.txt', 'docs/robots.txt')
+
+
+# Function to resize favicon.ico to 32x32 pixels
+def resize_favicon(src_path, dest_path, size=(32, 32)):
+    with Image.open(src_path) as img:
+        img = img.resize(size, Image.LANCZOS)
+        img.save(dest_path, format='webp')
+
+# Resize and copy favicon.ico to the docs directory
+resize_favicon('content/favicon.ico', 'docs/favicon.ico')
+
+###############################################################################
+# docs/publications.html
+###############################################################################
+
+# Load publications
+def load_publications(directory):
+    publications = []
+    for filename in os.listdir(directory):
+        if filename.endswith('.html'):
+            filepath = os.path.join(directory, filename)
+            content = read_file(filepath)
+            metadata, content = content.split('---', 2)[1:]
+            metadata = yaml.safe_load(metadata)
+            metadata['link'] = f"publications/{filename}"
+            metadata['content'] = content
+            publications.append(metadata)
+
+    publications.sort(key=lambda x: x['year'], reverse=True)
+    return publications
+
+# Load publications
+publications = load_publications('content/publications')
+
+# Render the publications page template with publications
+publications_page_template = template_env.get_template('publications.html')
+rendered_publications_page = publications_page_template.render(
+    head=head_template.render(meta_title="John Martinsson's Publications", meta_description="A list of publications by John Martinsson."),
+    header=header_template.render(name="John Martinsson"),
+    publications=publications, 
+    footer=footer
+)
+
+# Save the rendered publications page to a file
+output_publications_page_path = os.path.join('docs', 'publications.html')
+os.makedirs(os.path.dirname(output_publications_page_path), exist_ok=True)
+with open(output_publications_page_path, 'w') as file:
+    file.write(rendered_publications_page)
+
+# Render each publication
+publication_template = template_env.get_template('publication.html')
+for publication in publications:
+    rendered_publication = publication_template.render(
+        title=publication['title'],
+        head=head_template.render(meta_title=publication['title'], meta_description=publication['abstract']),
+        header=header_template.render(name="John Martinsson"),
+        authors=publication['authors'],
+        proceedings=publication['proceedings'],
+        year=publication['year'],
+        abstract=publication['abstract'],
+        bibtex=publication['bibtex'],
+        pdf_link=publication['pdf_link'],
+        doi=publication['doi'],
+        code_link=publication['code_link'],
+        footer=footer,
+        location=publication['location']
+    )
+    output_publication_path = os.path.join('docs', publication['link'])
+    os.makedirs(os.path.dirname(output_publication_path), exist_ok=True)
+    with open(output_publication_path, 'w') as file:
+        file.write(rendered_publication)
+
+print(f"Rendered publications page, and publications saved to {output_publications_page_path}")
+
+# copy content/pdfs to docs/pdfs
+shutil.copytree('content/pdfs', 'docs/pdfs', dirs_exist_ok=True)
+
+###############################################################################
+# docs/index.html
+###############################################################################
+
+# Load the content file
+content = read_file('content/index.html')
+
+# Extract metadata and content
+metadata, content = content.split('---', 2)[1:]
+metadata = yaml.safe_load(metadata)
+
+# Filter publications to include only those with featured: true
+featured_publications = [pub for pub in publications if pub.get('featured', False)]
+
+# Render the template with metadata and content
+rendered_html = template.render(
+    title=metadata['title'], 
+    head=head_template.render(meta_title=metadata['title'], meta_description=metadata['description']), 
+    header=header_template.render(name="John Martinsson"),
+    content=content, 
+    footer=footer,
+    publications=featured_publications,  # Use the filtered list of featured publications
+)
+
+# Save the rendered HTML to a file
+output_path = os.path.join('docs', metadata['filename'])
+os.makedirs(os.path.dirname(output_path), exist_ok=True)
+with open(output_path, 'w') as file:
+    file.write(rendered_html)
+
+# Minify and copy styles.css and script.js to the docs directory
+css_content = read_file('content/styles.css')
+minified_css = compress(css_content)
+with open('docs/styles.css', 'w') as file:
+    file.write(minified_css)
+
+js_content = read_file('content/script.js')
+minified_js = jsmin(js_content)
+with open('docs/script.js', 'w') as file:
+    file.write(minified_js)
+
+print(f"Rendered HTML saved to {output_path}")
+
 # Generate RSS feed
 rss_template = template_env.get_template('rss.xml')
 rss_feed = rss_template.render(
     posts=posts,
+    publications=publications,
     pub_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000'),
     last_build_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
 )
@@ -182,6 +265,7 @@ print(f"Generated RSS feed saved to {output_rss_path}")
 sitemap_template = template_env.get_template('sitemap.xml')
 sitemap = sitemap_template.render(
     posts=posts,
+    publications=publications,
     lastmod=datetime.now(timezone.utc).strftime('%Y-%m-%d')
 )
 
@@ -191,16 +275,3 @@ with open(output_sitemap_path, 'w') as file:
     file.write(sitemap)
 
 print(f"Generated sitemap saved to {output_sitemap_path}")
-
-# Copy robots.txt to the docs directory
-shutil.copy('content/robots.txt', 'docs/robots.txt')
-
-
-# Function to resize favicon.ico to 32x32 pixels
-def resize_favicon(src_path, dest_path, size=(32, 32)):
-    with Image.open(src_path) as img:
-        img = img.resize(size, Image.LANCZOS)
-        img.save(dest_path, format='webp')
-
-# Resize and copy favicon.ico to the docs directory
-resize_favicon('content/favicon.ico', 'docs/favicon.ico')

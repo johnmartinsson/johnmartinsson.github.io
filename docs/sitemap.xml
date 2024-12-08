@@ -2,20 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://johnmartinsson.org/</loc>
-        <lastmod>2024-12-06</lastmod>
+        <lastmod>2024-12-08</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://johnmartinsson.org/blog.html</loc>
-        <lastmod>2024-12-06</lastmod>
+        <lastmod>2024-12-08</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://johnmartinsson.org/blog/blog/efficient-and-precise-sound-event-annotation.html</loc>
+        <loc>https://johnmartinsson.org/blog/efficient-and-precise-sound-event-annotation.html</loc>
         <lastmod>2024-12-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications.html</loc>
+        <lastmod>2024-12-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/differentiable-log-mel-spectrogram.html</loc>
+        <lastmod>2024-12-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/adaptive-change-point-detection.html</loc>
+        <lastmod>2024-12-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/few-shot-bioacoustic-event-detection.html</loc>
+        <lastmod>2024-12-08</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>

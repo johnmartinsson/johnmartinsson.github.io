@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>John Martinsson's Research and Blog</title>
-<meta name="description" content="John Martinsson's research and blog on machine listening for bioacoustics.">
+<title>From Weak to Strong Sound Event Labels using Adaptive Change-Point Detection and Active Learning</title>
+<meta name="description" content="We propose an adaptive change point detection method (A-CPD) for machine guided weak label annotation of audio recording segments. The goal is to maximize the amount of information gained about the temporal activations of the target sounds. For each unlabeled audio recording, we use a prediction model to derive a probability curve used to guide annotation. The prediction model is initially pre-trained on available annotated sound event data with classes that are disjoint from the classes in the unlabeled dataset. The prediction model then gradually adapts to the annotations provided by the annotator in an active learning loop. We derive query segments to guide the weak label annotator towards strong labels, using change point detection on these probabilities. We show that it is possible to derive strong labels of high quality with a limited annotation budget, and show favorable results for A-CPD when compared to two baseline query segment strategies.">
 <link rel="stylesheet" href="/styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <link rel="alternate" type="application/rss+xml" title="John Martinsson's Blog" href="/rss.xml">
@@ -34,6 +34,7 @@
 <body>
     <div class="container">
         <header>
+            <header>
     <!-- Banner Image -->
     <div class="banner">
         <img src="/images/bioacoustics_cropped_2.webp" alt="Banner Image" class="banner-image" loading="lazy">
@@ -96,79 +97,54 @@
         </ul>
     </nav>
 </header>
+        </header>
         <main>
-            
-
-<section class="research_vision">
-    <!-- Research vision -->
-    <h2>Machine Listening for Bioacoustics</h2>
-    <p>
-        My research interests lie in applying machine learning to automated sensing and perception of natural environments, particularly through sound. I aim to develop machine listening methods that help monitor the impacts humans have on ecosystems by enabling automated species detection and biodiversity estimation in bioacoustic data.
-    </p>
-    <div class="section-header">
-        <img src="/images/automated_habitat_monitoring_colorized.webp" alt="Automated habitat monitoring and the effect of human interventions." loading="lazy">
-    </div>
-    <p>
-        I am particularly interested in annotation-efficient machine listening methods for bioacoustics and ecoacoustics. I believe there is immense potential in using acoustic sensors and machine listening techniques to quantify the state of our natural environment, especially for monitoring animal populations.
-    </p>
-    <div class="section-header">
-        <img src="/images/machine_learning_for_habitat_monitoring_colorized.webp" alt="Automated analysis of acoustic and visual sensor data using machine learning." loading="lazy">
-    </div>
-    <p>
-        The information in sound is often complementary to that of images, and the combination of the two can give a more complete understanding of the environment. While larger animals such as the fox may be easier to capture on camera, smaller but acoustically active animals like birds and frogs may be easier to capture with a microphone. I am excited about the possibilities of combining acoustic and visual sensor data to monitor ecosystems and the effects of human interventions.
-    </p>
-    <!-- AI-generated podcast -->
-    <h2>Listen to This AI-Generated Podcast</h2>
-    <p>
-        I prompted NotebookLM with the text above to generate a short podcast about my research vision. It offers an engaging listen and captures my aspirations for machine listening in bioacoustics quite well. While my contributions to the field are exaggerated, it serves as a fun experiment in AI-generated content.
-    </p>
-
-    <audio controls preload="none">
-        <source src="/audio/about-me.webm" type="audio/webm">
-      Your browser does not support the audio element.
-    </audio>    
-
-    <!-- People I work with -->
-    <h2>People I Work With</h2> 
-    <p>
-        I am a PhD student at RISE working in the <a href="https://dl-group.se/">deep learning group</a>, and affiliated with Lund University. My supervisors are <a href="https://mogren.one">Olof Mogren</a> and <a href="https://www.maths.lu.se/english/research/staff/mariasandsten/">Maria Sandsten</a>. After a 2-month research visit at the <a href="https://webpages.tuni.fi/arg/">audio research group</a> at Tampere University, I have also been collaborating with <a href="https://homepages.tuni.fi/tuomas.virtanen/">Tuomas Virtanen</a>.
-    </p>
-    <h2>Featured Publications</h2>
-    <p>
-        A selection of publications related to machine listening, bioacoustics, and environmental monitoring. You can soon find all my publications <a href="/publications.html" target="_blank">here</a>. For now, all publications are on <a href="https://scholar.google.se/citations?hl=sv&user=sAMIwlMAAAAJ&view_op=list_works&sortby=pubdate" target="_blank"> Google Scholar</a>.
-    </p>
-</section>
-            <div class="publications-list">
-                
-                <div class="publication">
-                    <div class="publication-image">
-                        <img src="/images/efficient_annotation_colorized.webp" alt="From Weak to Strong Sound Event Labels using Adaptive Change-Point Detection and Active Learning">
-                    </div>
-                    <div class="publication-reference">
-                        John Martinsson, Olof Mogren, Maria Sandsten, Tuomas Virtanen, <a href="publications/adaptive-change-point-detection.html" target="_blank">From Weak to Strong Sound Event Labels using Adaptive Change-Point Detection and Active Learning</a>, <em>2024 32nd European Signal Processing Conference (EUSIPCO)</em>, Lyon, France, 2024.
-                    </div>
-                    <div class="publication-links">
-                        <a href="publications/adaptive-change-point-detection.html" target="_blank">Link</a>
-                        
-                    </div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-image">
-                        <img src="/images/few_shot_bioacoustic_event_detection_colorized.webp" alt="Few-Shot Bioacoustic Event Detection Using an Event-Length Adapted Ensemble of Prototypical Networks">
-                    </div>
-                    <div class="publication-reference">
-                        John Martinsson, Martin Willbo, Aleksis Pirinen, Olof Mogren, Maria Sandsten, <a href="publications/few-shot-bioacoustic-event-detection.html" target="_blank">Few-Shot Bioacoustic Event Detection Using an Event-Length Adapted Ensemble of Prototypical Networks</a>, <em>Detection and Classification of Acoustic Scenes and Events 2022</em>, Nancy, France, 2022.
-                    </div>
-                    <div class="publication-links">
-                        <a href="publications/few-shot-bioacoustic-event-detection.html" target="_blank">Link</a>
-                        
-                    </div>
-                </div>
-                
+            <h1>From Weak to Strong Sound Event Labels using Adaptive Change-Point Detection and Active Learning</h1>
+            <p><strong>Authors:</strong> John Martinsson, Olof Mogren, Maria Sandsten, Tuomas Virtanen</p>
+            <p><strong>Published in:</strong> 2024 32nd European Signal Processing Conference (EUSIPCO)</p>
+            <p><strong>Year:</strong> 2024</p>
+            <p><strong>Location:</strong> Lyon, France </p>
+            <div class="abstract">
+                <h2>Abstract</h2>
+                <p>We propose an adaptive change point detection method (A-CPD) for machine guided weak label annotation of audio recording segments. The goal is to maximize the amount of information gained about the temporal activations of the target sounds. For each unlabeled audio recording, we use a prediction model to derive a probability curve used to guide annotation. The prediction model is initially pre-trained on available annotated sound event data with classes that are disjoint from the classes in the unlabeled dataset. The prediction model then gradually adapts to the annotations provided by the annotator in an active learning loop. We derive query segments to guide the weak label annotator towards strong labels, using change point detection on these probabilities. We show that it is possible to derive strong labels of high quality with a limited annotation budget, and show favorable results for A-CPD when compared to two baseline query segment strategies.</p>
             </div>
+            <div class="bibtex">
+                <h2>BibTeX</h2>
+                <pre>@INPROCEEDINGS{10715098,
+  author={Martinsson, John and Mogren, Olof and Sandsten, Maria and Virtanen, Tuomas},
+  booktitle={2024 32nd European Signal Processing Conference (EUSIPCO)}, 
+  title={{From Weak to Strong Sound Event Labels using Adaptive Change-Point Detection and Active Learning}}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={902-906},
+  keywords={Adaptation models;Annotations;Noise;Europe;Predictive models;Audio recording;Data models;Active learning;annotation;sound event detection;deep learning},
+  doi={10.23919/EUSIPCO63174.2024.10715098}
+}
+</pre>
+            </div>
+            <div class="links">
+                <a href="/pdfs/adaptive-change-point-detection.pdf" target="_blank">PDF</a>
+                <a href="https://github.com/johnmartinsson/adaptive-change-point-detection" target="_blank">Code</a>
+                <a href="https://doi.org/10.23919/EUSIPCO63174.2024.10715098" target="_blank">DOI</a>
+                <a href="#" class="copy-bibtex" data-bibtex="@INPROCEEDINGS{10715098,
+  author={Martinsson, John and Mogren, Olof and Sandsten, Maria and Virtanen, Tuomas},
+  booktitle={2024 32nd European Signal Processing Conference (EUSIPCO)}, 
+  title={{From Weak to Strong Sound Event Labels using Adaptive Change-Point Detection and Active Learning}}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={902-906},
+  keywords={Adaptation models;Annotations;Noise;Europe;Predictive models;Audio recording;Data models;Active learning;annotation;sound event detection;deep learning},
+  doi={10.23919/EUSIPCO63174.2024.10715098}
+}
+">Copy BibTeX</a>
+
+            </div>
+            <h2>Author Comments</h2>
         </main>
         <footer>
+            <footer>
     <div class="footer-container">
         <div class="social-links">
             <div class="social-link">
@@ -193,7 +169,22 @@
     </div>
     <p>&copy; 2024 John Martinsson. All rights reserved.</p>
 </footer>
+        </footer>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.copy-bibtex').forEach(function(element) {
+                element.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    var bibtex = this.getAttribute('data-bibtex');
+                    navigator.clipboard.writeText(bibtex).then(function() {
+                        alert('BibTeX copied to clipboard!');
+                    }, function(err) {
+                        console.error('Could not copy text: ', err);
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

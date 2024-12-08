@@ -5,9 +5,11 @@
 </head>
 <body>
     <div class="container">
-        {{ header | safe }}
+        <header>
+            {{ header }}
+        </header>
         <main>
-            {{ content | safe}}
+            <h1>Publications</h1>
             <div class="publications-list">
                 {% for publication in publications %}
                 <div class="publication">
@@ -25,8 +27,9 @@
                 {% endfor %}
             </div>
         </main>
-        {{ footer | safe }}
+        <footer>
+            {{ footer }}
+        </footer>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
