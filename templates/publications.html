@@ -16,12 +16,13 @@
                     <div class="publication-image">
                         <img src="{{ publication.image }}" alt="{{ publication.title }}">
                     </div>
-                    <div class="publication-reference">
-                        {{ publication.authors }}, <a href="{{ publication.link }}" target="_blank">{{ publication.title }}</a>, <em>{{ publication.proceedings }}</em>, {{ publication.location }}, {{ publication.year }}.
-                    </div>
-                    <div class="publication-links">
-                        <a href="{{ publication.link }}" target="_blank">Link</a>
-                        
+                    <div class="publication-content">
+                        <div class="publication-reference">
+                            {{ publication.authors }}, <a href="{{ publication.link }}" target="_blank">{{ publication.title }}</a>, <em>{{ publication.proceedings }}</em>, {{ publication.location }}, {{ publication.year }}.
+                        </div>
+                        <div class="publication-links">
+                            <a href="{{ publication.link }}" target="_blank">Link</a>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}

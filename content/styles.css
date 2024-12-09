@@ -215,13 +215,7 @@ h1 {
     margin: 20px 0; /* Add margin to the image for spacing */
 }
 
-/* Publications list styling */
-.publications-list {
-    list-style-type: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-}
-
+/* Styling for publication page */
 .publications-list li {
     margin-bottom: 15px; /* Add space between list items */
 }
@@ -243,16 +237,19 @@ h1 {
     text-decoration: underline; /* Add underline on hover */
 }
 
-/* Styling for publication page */
 .publications-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
 }
 
 .publication {
     display: flex;
-    align-items: center; /* Center items vertically */
+    flex-direction: column; /* Stack image, reference, and links vertically */
+    align-items: center; /* Center items horizontally */
     background-color: #fcfcf2;
     border: 1px solid #ddd;
     padding: 10px;
@@ -261,26 +258,31 @@ h1 {
 }
 
 .publication-image {
-    display: flex;
-    align-items: center; /* Center image vertically */
-    justify-content: center; /* Center image horizontally */
-    margin-right: 20px;
+    margin-bottom: 10px; /* Add space below the image */
 }
 
 .publication-image img {
-    max-width: 150px; /* Larger image */
-    max-height: 150px; /* Larger image */
+    max-width: 500px; /* Set a maximum width for the image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.publication-content {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between;
+    width: 100%;
 }
 
 .publication-reference {
-    flex: 1;
+    text-align: left; /* Left-align the reference text */
+    margin-right: 20px; /* Add space to the right of the reference text */
+    flex: 1; /* Allow reference text to take up remaining space */
 }
 
 .publication-links {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Center links vertically */
+    justify-content: center; /* Center links horizontally */
     gap: 10px;
 }
 
