@@ -28,6 +28,104 @@
     </url>
     
     <url>
+        <loc>https://johnmartinsson.org/publications/2024/differentiable-log-mel-spectrogram.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2024/efficient-and-precise-annotation-of-local-structures.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2024/adaptive-change-point-detection.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2022/smart-fire-detection.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2022/few-shot-bioacoustic-event-detection.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2024/bullerdatainsamling-autonom-artidentifiering.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2021/adversarial-representation-learning-images.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2020/federated-learning-using-a-mixture-of-experts.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2020/blood-glucose-prediction-with-variance-estimation.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2020/adversarial-representation-learning-speech.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2019/semantic-segmentation-fashion-images.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2019/generative-modelling-semantic-segmentation.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2018/automatic-blood-glucose-prediction.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
+        <loc>https://johnmartinsson.org/publications/2018/clustering-vehicle-maneuver-trajectories.html</loc>
+        <lastmod>2024-12-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <url>
         <loc>https://johnmartinsson.org/publications/2017/bird-species-identification.html</loc>
         <lastmod>2024-12-09</lastmod>
         <changefreq>monthly</changefreq>

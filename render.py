@@ -269,7 +269,7 @@ print(f"Rendered HTML saved to {output_path}")
 rss_template = template_env.get_template('rss.xml')
 rss_feed = rss_template.render(
     posts=posts,
-    publications=publications,
+    publications=all_publications,
     pub_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000'),
     last_build_date=datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
 )
@@ -285,7 +285,7 @@ print(f"Generated RSS feed saved to {output_rss_path}")
 sitemap_template = template_env.get_template('sitemap.xml')
 sitemap = sitemap_template.render(
     posts=posts,
-    publications=publications,
+    publications=all_publications,
     lastmod=datetime.now(timezone.utc).strftime('%Y-%m-%d')
 )
 
