@@ -15,9 +15,9 @@ def convert_images_to_webp(src_dir, dest_dir, max_width=800):
         os.makedirs(dest_dir)
     for root, _, files in os.walk(src_dir):
         for file in files:
+            src_path = os.path.join(root, file)
+            dest_path = os.path.join(dest_dir, os.path.relpath(root, src_dir), os.path.splitext(file)[0] + '.webp')
             if file.lower().endswith(('png', 'jpg', 'jpeg')):
-                src_path = os.path.join(root, file)
-                dest_path = os.path.join(dest_dir, os.path.relpath(root, src_dir), os.path.splitext(file)[0] + '.webp')
                 if not os.path.exists(dest_path):
                     os.makedirs(os.path.dirname(dest_path), exist_ok=True)
                     with Image.open(src_path) as img:
@@ -27,6 +27,12 @@ def convert_images_to_webp(src_dir, dest_dir, max_width=800):
                             new_height = int((float(img.height) * float(ratio)))
                             img = img.resize((max_width, new_height), Image.LANCZOS)
                         img.save(dest_path, 'webp')
+            elif file.lower().endswith('svg'):
+                # Copy SVG files directly
+                dest_path = os.path.join(dest_dir, os.path.relpath(root, src_dir), file)
+                if not os.path.exists(dest_path):
+                    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                    shutil.copy2(src_path, dest_path)
 
 # Function to convert audio files to WebM
 def convert_audio_to_webm(src_dir, dest_dir):
