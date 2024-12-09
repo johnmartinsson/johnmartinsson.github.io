@@ -248,42 +248,54 @@ h1 {
 
 .publication {
     display: flex;
-    flex-direction: column; /* Stack image, reference, and links vertically */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column; /* Stack content vertically by default */
+    align-items: flex-start; /* Align items to the start */
     background-color: #fcfcf2;
     border: 1px solid #ddd;
     padding: 10px;
-    width: 100%;
+    width: 100%; /* Use 100% width to make it responsive */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.publication-image {
-    margin-bottom: 10px; /* Add space below the image */
-}
-
-.publication-image img {
-    max-width: 800px; /* Set a maximum width for the image */
-    height: auto; /* Maintain aspect ratio */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .publication-content {
     display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: space-between;
+    flex-direction: column; /* Stack content vertically on small screens */
+    align-items: flex-start; /* Align items to the start */
     width: 100%;
 }
 
 .publication-reference {
     text-align: left; /* Left-align the reference text */
-    margin-right: 20px; /* Add space to the right of the reference text */
+    margin-bottom: 10px; /* Add space below the reference text */
     flex: 1; /* Allow reference text to take up remaining space */
 }
 
 .publication-links {
     display: flex;
-    align-items: center; /* Center links vertically */
-    justify-content: center; /* Center links horizontally */
+    flex-direction: column; /* Stack links vertically */
+    align-items: flex-start; /* Align links to the start */
     gap: 10px;
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .publication-content {
+        flex-direction: row; /* Arrange content in a row on larger screens */
+        align-items: center; /* Center items vertically */
+        width: 100%; /* Ensure it spans the whole width */
+    }
+
+    .publication-reference {
+        margin-right: 20px; /* Add space to the right of the reference text */
+        flex: 1; /* Allow reference text to take up remaining space */
+    }
+
+    .publication-links {
+        flex-direction: row; /* Arrange links in a row */
+        align-items: center; /* Center links vertically */
+        justify-content: flex-start; /* Align links to the start */
+    }
 }
 
 .publication-links a {
