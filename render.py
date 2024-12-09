@@ -140,8 +140,9 @@ resize_favicon('content/favicon.ico', 'docs/favicon.ico')
 # docs/publications.html
 ###############################################################################
 
-def load_publications(directory):
-    publications = []
+# Load publications
+def load_publications_by_year(directory):
+    publications_by_year = {}
     for root, _, files in os.walk(directory):
         for filename in files:
             if filename.endswith('.html'):
@@ -154,20 +155,24 @@ def load_publications(directory):
                 # Ensure pdf_link is root-relative
                 if 'pdf_link' in metadata:
                     metadata['pdf_link'] = '/' + os.path.relpath(metadata['pdf_link'], 'content')
-                publications.append(metadata)
+                year = metadata['year']
+                if year not in publications_by_year:
+                    publications_by_year[year] = []
+                publications_by_year[year].append(metadata)
     # Sort publications by year (newest first)
-    publications.sort(key=lambda x: x['year'], reverse=True)
-    return publications
+    sorted_publications_by_year = dict(sorted(publications_by_year.items(), reverse=True))
+    return sorted_publications_by_year
+
 
 # Load publications
-publications = load_publications('content/publications')
+publications_by_year = load_publications_by_year('content/publications')
 
 # Render the publications page template with publications
 publications_page_template = template_env.get_template('publications.html')
 rendered_publications_page = publications_page_template.render(
     head=head_template.render(meta_title="John Martinsson's Publications", meta_description="A list of publications by John Martinsson."),
     header=header_template.render(name="John Martinsson"),
-    publications=publications, 
+    publications_by_year=publications_by_year,
     footer=footer
 )
 
@@ -179,27 +184,28 @@ with open(output_publications_page_path, 'w') as file:
 
 # Render each publication
 publication_template = template_env.get_template('publication.html')
-for publication in publications:
-    rendered_publication = publication_template.render(
-        title=publication['title'],
-        head=head_template.render(meta_title=publication['title'], meta_description=publication['abstract']),
-        header=header_template.render(name="John Martinsson"),
-        authors=publication['authors'],
-        proceedings=publication['proceedings'],
-        year=publication['year'],
-        abstract=publication['abstract'],
-        bibtex=publication['bibtex'],
-        pdf_link=publication['pdf_link'],
-        doi=publication['doi'],
-        code_link=publication['code_link'],
-        footer=footer,
-        location=publication['location'],
-        image=publication['image']
-    )
-    output_publication_path = os.path.join('docs', publication['link'])
-    os.makedirs(os.path.dirname(output_publication_path), exist_ok=True)
-    with open(output_publication_path, 'w') as file:
-        file.write(rendered_publication)
+for year, publications in publications_by_year.items():
+    for publication in publications:
+        rendered_publication = publication_template.render(
+            title=publication['title'],
+            head=head_template.render(meta_title=publication['title'], meta_description=publication['abstract']),
+            header=header_template.render(name="John Martinsson"),
+            authors=publication['authors'],
+            proceedings=publication['proceedings'],
+            year=publication['year'],
+            abstract=publication['abstract'],
+            bibtex=publication['bibtex'],
+            pdf_link=publication['pdf_link'],
+            doi=publication['doi'],
+            code_link=publication['code_link'],
+            footer=footer,
+            location=publication['location'],
+            image=publication['image']
+        )
+        output_publication_path = os.path.join('docs', publication['link'])
+        os.makedirs(os.path.dirname(output_publication_path), exist_ok=True)
+        with open(output_publication_path, 'w') as file:
+            file.write(rendered_publication)
 
 print(f"Rendered publications page, and publications saved to {output_publications_page_path}")
 
@@ -217,8 +223,12 @@ content = read_file('content/index.html')
 metadata, content = content.split('---', 2)[1:]
 metadata = yaml.safe_load(metadata)
 
+all_publications = []
+for year, pubs in publications_by_year.items():
+    all_publications.extend(pubs)
+
 # Filter publications to include only those with featured: true
-featured_publications = [pub for pub in publications if pub.get('featured', False)]
+featured_publications = [pub for pub in all_publications if pub.get('featured', False)]
 
 # Render the template with metadata and content
 rendered_html = template.render(

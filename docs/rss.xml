@@ -5,8 +5,8 @@
         <link>https://johnmartinsson.org/</link>
         <description>Updates and blog posts about John Martinsson's work in bioacoustics and machine listening.</description>
         <language>en-us</language>
-        <pubDate>Mon, 09 Dec 2024 15:13:40 +0000</pubDate>
-        <lastBuildDate>Mon, 09 Dec 2024 15:13:40 +0000</lastBuildDate>
+        <pubDate>Mon, 09 Dec 2024 15:40:20 +0000</pubDate>
+        <lastBuildDate>Mon, 09 Dec 2024 15:40:20 +0000</lastBuildDate>
         <docs>https://www.rssboard.org/rss-specification</docs>
         <generator>John Martinsson's Blog Generator</generator>
         <atom:link href="https://johnmartinsson.org/rss.xml" rel="self" type="application/rss+xml" />
@@ -21,119 +21,6 @@
         </item>
         
         
-        
-        <item>
-            <title>DMEL: The Differentiable Log-Mel Spectrogram as a Trainable Layer in Neural Networks</title>
-            <link>https://johnmartinsson.org/publications/2024/differentiable-log-mel-spectrogram.html</link>
-            <description>In this paper we present the differentiable log-Mel spectrogram (DMEL) for audio classification. DMEL uses a Gaussian window, with a window length that can be jointly optimized with the neural network. DMEL is used as the input layer in different neural networks and evaluated on standard audio datasets. We show that DMEL achieves a higher average test accuracy for sub-optimal initial choices of the window length when compared to a baseline with a fixed window length. In addition, we analyse the computational cost of DMEL and compare to a standard hyperparameter search over different window lengths, showing favorable results for DMEL. Finally, an empirical evaluation on a carefully designed dataset is performed to investigate if the differentiable spectrogram actually learns the optimal window length. The design of the dataset relies on the theory of spectrogram resolution. We also empirically evaluate the convergence rate to the optimal window length. DOI: 10.1109/ICASSP48485.2024.10446816</description>
-            <pubDate>2024-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false">10.1109/ICASSP48485.2024.10446816</guid>
-        </item>
-        
-        <item>
-            <title>Efficient and precise annotation of local structures in data</title>
-            <link>https://johnmartinsson.org/publications/2024/efficient-and-precise-annotation-of-local-structures.html</link>
-            <description>Machine learning models are used to help scientists analyze large amounts of data across all fields of science. These models become better with more data and larger models mainly through supervised learning. Both supervised learning and model validation benefit from annotated datasets where the annotations are of high quality. A key challenge is to annotate the amount of data that is needed to train large machine learning models. This is because annotation is a costly process and the collected labels can vary in quality. Methods that enable cheap annotation of high quality are therefore needed.
-In this thesis we consider ways to reduce the annotation cost and improve the label quality when annotating local structures in data. An example of a local structure is a sound event in an audio recording, or a visual object in an image. By automatically detecting the boundaries of these structures we allow the annotator to focus on the task of assigning a textual description to the local structure within those boundaries. In this setting we analyze the limits of a commonly used annotation method and compare that to an oracle method, which acts as an upper bound on what can be achieved. Further, we propose new ways to perform this kind of annotation that results in higher label quality for the studied datasets at a reduced cost. Finally, we study ways to reduce annotation cost by making the most use of each annotation that is given through better modelling approaches in general. DOI: </description>
-            <pubDate>2024-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false"></guid>
-        </item>
-        
-        <item>
-            <title>From Weak to Strong Sound Event Labels using Adaptive Change-Point Detection and Active Learning</title>
-            <link>https://johnmartinsson.org/publications/2024/adaptive-change-point-detection.html</link>
-            <description>We propose an adaptive change point detection method (A-CPD) for machine guided weak label annotation of audio recording segments. The goal is to maximize the amount of information gained about the temporal activations of the target sounds. For each unlabeled audio recording, we use a prediction model to derive a probability curve used to guide annotation. The prediction model is initially pre-trained on available annotated sound event data with classes that are disjoint from the classes in the unlabeled dataset. The prediction model then gradually adapts to the annotations provided by the annotator in an active learning loop. We derive query segments to guide the weak label annotator towards strong labels, using change point detection on these probabilities. We show that it is possible to derive strong labels of high quality with a limited annotation budget, and show favorable results for A-CPD when compared to two baseline query segment strategies. DOI: 10.23919/EUSIPCO63174.2024.10715098</description>
-            <pubDate>2024-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false">10.23919/EUSIPCO63174.2024.10715098</guid>
-        </item>
-        
-        <item>
-            <title>A Novel Method for Smart Fire Detection Using Acoustic Measurements and Machine Learning: Proof of Concept</title>
-            <link>https://johnmartinsson.org/publications/2022/smart-fire-detection.html</link>
-            <description>Fires are a major hazard resulting in high monetary costs, personal suffering, and irreplaceable losses. The consequences of a fire can be mitigated by early detection systems which increase the potential for successful intervention. The number of false alarms in current systems can for some applications be very high, but could be reduced by increasing the reliability of the detection system by using complementary signals from multiple sensors. The current study investigates the novel use of machine learning for fire event detection based on acoustic sensor measurements. Many materials exposed to heat give rise to acoustic emissions during heating, pyrolysis and burning phases. Further, sound is generated by the heat flow associated with the flame itself. The acoustic data collected in this study is used to define an acoustic sound event detection task, and the proposed machine learning method is trained to detect the presence of a fire event based on the emitted acoustic signal. The method is able to detect the presence of fire events from the examined material types with an overall F-score of 98.4%. The method has been developed using laboratory scale tests as a proof of concept and needs further development using realistic scenarios in the future. DOI: 10.1007/s10694-022-01307-1</description>
-            <pubDate>2022-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false">10.1007/s10694-022-01307-1</guid>
-        </item>
-        
-        <item>
-            <title>Few-Shot Bioacoustic Event Detection Using an Event-Length Adapted Ensemble of Prototypical Networks</title>
-            <link>https://johnmartinsson.org/publications/2022/few-shot-bioacoustic-event-detection.html</link>
-            <description>In this paper we study two major challenges in few-shot bioacoustic event detection: variable event lengths and false-positives. We use prototypical networks where the embedding function is trained using a multi-label sound event detection model instead of using episodic training as the proxy task on the provided training dataset. This is motivated by polyphonic sound events being present in the base training data. We propose a method to choose the embedding function based on the average event length of the few-shot examples and show that this makes the method more robust towards variable event lengths. Further, we show that an ensemble of prototypical neural networks trained on different training and validation splits of time-frequency images with different loudness normalizations reduces false-positives. In addition, we present an analysis on the effect that the studied loudness normalization techniques have on the performance of the prototypical network ensemble. Overall, per-channel energy normalization (PCEN) outperforms the standard log transform for this task. The method uses no data augmentation and no external data. The proposed approach achieves a F-score of 48.0% when evaluated on the hidden test set of the Detection and Classification of Acoustic Scenes and Events (DCASE) task 5. DOI: </description>
-            <pubDate>2022-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false"></guid>
-        </item>
-        
-        <item>
-            <title>Bullerdatainsamling och autonom artidentifiering för att underlätta miljöövervakning</title>
-            <link>https://johnmartinsson.org/publications/2024/bullerdatainsamling-autonom-artidentifiering.html</link>
-            <description> DOI: </description>
-            <pubDate>2022-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false"></guid>
-        </item>
-        
-        <item>
-            <title>Adversarial representation learning for synthetic replacement of private attributes</title>
-            <link>https://johnmartinsson.org/publications/2021/adversarial-representation-learning-images.html</link>
-            <description>Data privacy is an increasingly important aspect of many real-world analytics tasks. Data sources that contain sensitive information may have immense potential which could be unlocked using the right privacy enhancing transformations, but current methods often fail to produce convincing output. Furthermore, finding the right balance between privacy and utility is often a tricky trade-off. In this work, we propose a novel approach for data privatization, which involves two steps: in the first step, it removes the sensitive information, and in the second step, it replaces this information with an independent random sample. Our method builds on adversarial representation learning which ensures strong privacy by training the model to fool an increasingly strong adversary. While previous methods only aim at obfuscating the sensitive information, we find that adding new random information in its place strengthens the provided privacy and provides better utility at any given level of privacy. The result is an approach that can provide stronger privatization on image data, and yet be preserving both the domain and the utility of the inputs, entirely independent of the downstream task. DOI: BigData52589.2021.9671802</description>
-            <pubDate>2021-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false">BigData52589.2021.9671802</guid>
-        </item>
-        
-        <item>
-            <title>Federated learning using a mixture of experts</title>
-            <link>https://johnmartinsson.org/publications/2020/federated-learning-using-a-mixture-of-experts.html</link>
-            <description>In this work, we present a federated learning approach using a mixture of experts. The method leverages the strengths of multiple models to improve the overall performance and robustness of the system. By distributing the learning process across different devices, we ensure data privacy and scalability. The proposed approach is evaluated on various datasets, demonstrating its effectiveness in different scenarios. DOI: </description>
-            <pubDate>2020-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false"></guid>
-        </item>
-        
-        <item>
-            <title>Blood Glucose Prediction with Variance Estimation Using Recurrent Neural Networks</title>
-            <link>https://johnmartinsson.org/publications/2020/blood-glucose-prediction-with-variance-estimation.html</link>
-            <description>In this work, we present an approach for predicting blood glucose levels for diabetics up to one hour into the future. The approach is based on recurrent neural networks trained in an end-to-end fashion, requiring nothing but the glucose level history for the patient. The model outputs the prediction along with an estimate of its certainty, helping users to interpret the predicted levels. The approach needs no feature engineering or data pre-processing, and is computationally inexpensive. DOI: 10.1007/s41666-019-00059-y</description>
-            <pubDate>2020-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false">10.1007/s41666-019-00059-y</guid>
-        </item>
-        
-        <item>
-            <title>Adversarial representation learning for private speech generation</title>
-            <link>https://johnmartinsson.org/publications/2020/adversarial-representation-learning-speech.html</link>
-            <description>As more and more data is collected in various settings across organizations, companies, and countries, there has been an increase in the demand of user privacy. Developing privacy preserving methods for data analytics is thus an important area of research. In this work we present a model based on generative adversarial networks (GANs) that learns to obfuscate specific sensitive attributes in speech data. We train a model that learns to hide sensitive information in the data, while preserving the meaning in the utterance. The model is trained in two steps: first to filter sensitive information in the spectrogram domain, and then to generate new and private information independent of the filtered one. The model is based on a U-Net CNN that takes mel-spectrograms as input. A MelGAN is used to invert the spectrograms back to raw audio waveforms. We show that it is possible to hide sensitive information such as gender by generating new data, trained adversarially to maintain utility and realism. DOI: </description>
-            <pubDate>2020-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false"></guid>
-        </item>
-        
-        <item>
-            <title>Semantic Segmentation of Fashion Images Using Feature Pyramid Networks</title>
-            <link>https://johnmartinsson.org/publications/2019/semantic-segmentation-fashion-images.html</link>
-            <description>In this work, we approach the problem of semantically segmenting fashion images into different categories of clothing. This problem poses particular challenges because of the importance of both textural information and cues from shapes and context. To this end, we propose a fully convolutional neural network based on feature pyramid networks (FPN), together with a backbone consisting of the ResNeXt architecture. Our experimental evaluation shows that the proposed model achieves state-of-the-art results on two standard fashion benchmark datasets, and a qualitative study verifies its effectiveness when applied to typical fashion images. The approach has a modest memory footprint and can be used without a conditional random field (CRF) without much degradation of quality which makes our model preferable from a computational perspective. When comparing all methods without a CRF, our approach outperforms all state-of-the-art models on both datasets by a clear margin in all evaluated metrics. In fact, our approach achieves a higher accuracy without the CRF than the state-of-the-art models using CRFs. DOI: 10.1109/iccvw.2019.00382</description>
-            <pubDate>2020-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false">10.1109/iccvw.2019.00382</guid>
-        </item>
-        
-        <item>
-            <title>Generative Modelling of Semantic Segmentation Data in the Fashion Domain</title>
-            <link>https://johnmartinsson.org/publications/2019/generative-modelling-semantic-segmentation.html</link>
-            <description>In this work, we propose a method to generatively model the joint distribution of images and corresponding semantic segmentation maps using generative adversarial networks. We extend the Style-GAN architecture by iteratively growing the network during training, to add new output channels that model the semantic segmentation maps. We train the proposed method on a large dataset of fashion images and our experimental evaluation shows that the model produces samples that are coherent and plausible with semantic segmentation maps that closely match the semantics in the image. DOI: 10.1109/iccvw.2019.00391</description>
-            <pubDate>2020-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false">10.1109/iccvw.2019.00391</guid>
-        </item>
-        
-        <item>
-            <title>Automatic blood glucose prediction with confidence using recurrent neural networks</title>
-            <link>https://johnmartinsson.org/publications/2018/automatic-blood-glucose-prediction.html</link>
-            <description>Low-cost sensors continuously measuring blood glucose levels in intervals of a few minutes and mobile platforms combined with machine-learning (ML) solutions enable personalized precision health and disease management. ML solutions must be adapted to different sensor technologies, analysis tasks and individuals. This raises the issue of scale for creating such adapted ML solutions. We present an approach for predicting blood glucose levels for diabetics up to one hour into the future. The approach is based on recurrent neural networks trained in an end-to-end fashion, requiring nothing but the glucose level history for the patient. The model outputs the prediction along with an estimate of its certainty, helping users to interpret the predicted levels. The approach needs no feature engineering or data pre-processing, and is computationally inexpensive. DOI: </description>
-            <pubDate>2018-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false"></guid>
-        </item>
-        
-        <item>
-            <title>Clustering Vehicle Maneuver Trajectories Using Mixtures of Hidden Markov Models</title>
-            <link>https://johnmartinsson.org/publications/2018/clustering-vehicle-maneuver-trajectories.html</link>
-            <description>The safety of autonomous vehicles needs to be verified and validated by rigorous testing. It is expensive to test autonomous vehicles in the field, and therefore virtual testing methods are needed. Generative models of maneuvers such as cut-ins, overtakes, and lane-keeping are needed to thoroughly test the autonomous vehicle in a virtual environment. To train such models we need ground truth maneuver labels and obtaining such labels can be time-consuming and costly. In this work, we use a mixture of hidden Markov models to find clusters in maneuver trajectories, which can be used to speed up the labeling process. The maneuver trajectories are noisy, asynchronous and of uneven length, which make hidden Markov models a good fit for the data. The method is evaluated on labeled data from a test track consisting of cut-ins and overtakes with favorable results. Further, it is applied to natural data where many of the clusters found can be interpreted as driver maneuvers under reasonable assumptions. We show that mixtures of hidden Markov models can be used to find motion patterns in driver maneuver data from highways and country roads. DOI: 10.1109/ITSC.2018.8569418</description>
-            <pubDate>2018-01-01T00:00:00 +0000</pubDate>
-            <guid isPermaLink="false">10.1109/ITSC.2018.8569418</guid>
-        </item>
         
         <item>
             <title>Bird Species Identification using Convolutional Neural Networks</title>

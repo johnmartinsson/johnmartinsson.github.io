@@ -10,6 +10,8 @@
         </header>
         <main>
             <h1>Publications</h1>
+            {% for year, publications in publications_by_year.items() %}
+            <h2>{{ year }}</h2>
             <div class="publications-list">
                 {% for publication in publications %}
                 <div class="publication">
@@ -31,6 +33,7 @@
                 </div>
                 {% endfor %}
             </div>
+            {% endfor %}
         </main>
         <footer>
             {{ footer }}
