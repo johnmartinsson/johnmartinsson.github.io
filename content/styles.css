@@ -262,7 +262,7 @@ h1 {
 }
 
 .publication-image img {
-    max-width: 500px; /* Set a maximum width for the image */
+    max-width: 800px; /* Set a maximum width for the image */
     height: auto; /* Maintain aspect ratio */
 }
 
