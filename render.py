@@ -140,19 +140,22 @@ resize_favicon('content/favicon.ico', 'docs/favicon.ico')
 # docs/publications.html
 ###############################################################################
 
-# Load publications
 def load_publications(directory):
     publications = []
-    for filename in os.listdir(directory):
-        if filename.endswith('.html'):
-            filepath = os.path.join(directory, filename)
-            content = read_file(filepath)
-            metadata, content = content.split('---', 2)[1:]
-            metadata = yaml.safe_load(metadata)
-            metadata['link'] = f"publications/{filename}"
-            metadata['content'] = content
-            publications.append(metadata)
-
+    for root, _, files in os.walk(directory):
+        for filename in files:
+            if filename.endswith('.html'):
+                filepath = os.path.join(root, filename)
+                content = read_file(filepath)
+                metadata, content = content.split('---', 2)[1:]
+                metadata = yaml.safe_load(metadata)
+                metadata['link'] = os.path.relpath(filepath, 'content')
+                metadata['content'] = content
+                # Ensure pdf_link is root-relative
+                if 'pdf_link' in metadata:
+                    metadata['pdf_link'] = '/' + os.path.relpath(metadata['pdf_link'], 'content')
+                publications.append(metadata)
+    # Sort publications by year (newest first)
     publications.sort(key=lambda x: x['year'], reverse=True)
     return publications
 
@@ -190,7 +193,8 @@ for publication in publications:
         doi=publication['doi'],
         code_link=publication['code_link'],
         footer=footer,
-        location=publication['location']
+        location=publication['location'],
+        image=publication['image']
     )
     output_publication_path = os.path.join('docs', publication['link'])
     os.makedirs(os.path.dirname(output_publication_path), exist_ok=True)

@@ -13,11 +13,13 @@
             <div class="publications-list">
                 {% for publication in publications %}
                 <div class="publication">
+                    <!-- {% if publication.image %}
                     <div class="publication-image">
                         <a href="{{ publication.link }}" target="_blank">
                             <img src="{{ publication.image }}" alt="{{ publication.title }}">
                         </a>
                     </div>
+                    {% endif %} -->
                     <div class="publication-content">
                         <div class="publication-reference">
                             {{ publication.authors }}, <a href="{{ publication.link }}" target="_blank">{{ publication.title }}</a>, <em>{{ publication.proceedings }}</em>, {{ publication.location }}, {{ publication.year }}{% if publication.doi %}, doi: {{ publication.doi }}{% endif %}.
